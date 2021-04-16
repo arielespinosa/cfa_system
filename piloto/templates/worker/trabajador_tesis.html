@@ -1,0 +1,78 @@
+<section class="panel panel-default">
+    <div class="row wrapper">
+      <div class="col-sm-8 m-b-xs">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-sm btn-default active">
+            <input type="radio" name="options" id="option1"> Todos
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option2"> Hoy
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option3"> &Uacute;ltimos 3 d&iacute;a
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option4"> Semana
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option5"> Mes
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th width="20"><input type="checkbox"></th>
+            <th class="th-sortable" data-toggle="class">Fecha
+              <span class="th-sort">
+                <i class="fa fa-sort-down text"></i>
+                <i class="fa fa-sort-up text-active"></i>
+                <i class="fa fa-sort"></i>
+              </span>
+            </th>    
+            <th>T&iacute;tulo</th>       
+            <th>Grado</th>
+            <th>Especialidad</th>
+            <th>Lugar</th>
+            <th width="80"></th>
+          </tr>
+        </thead>
+        <tbody id="tb_trabajador_tesis">          
+          {% for trabajo_de_tesis in tesis %}
+          <tr>
+            <td><input type="checkbox" name="post[]" value="{{ trabajo_de_tesis.pk }}"></td>
+            <td>{{ trabajo_de_tesis.fecha_inicio }}</td>       
+            <td>{{ trabajo_de_tesis.titulo }}</td>
+            <td>{{ trabajo_de_tesis.grado }}</td>   
+            <td>{{ trabajo_de_tesis.especialidad }}</td>
+            <td>{{ trabajo_de_tesis.lugar }}</td>  
+            <td class="text-right">
+              <a class="ver_tesis" data-id="{% url 'trabajador:ver_tesis' trabajo_de_tesis.pk %}"><i class="fa fa-eye icon-muted"></i></a>
+              <a class="eliminar_tesis" data-id="{% url 'trabajador:eliminar_tesis' trabajo_de_tesis.pk %}"><i class="fa fa-trash icon-muted "></i></a>
+            </td>          
+          </tr>
+          {% endfor %}
+
+      </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-5">
+          <strong>
+            <small class="inline m-t-sm m-b-sm">Mostrando {{ tesis.start_index }}-{{ tesis.end_index }} de {{ tesis.paginator.count }} elementos</small>
+          </strong>
+        </div>
+      </div>
+    </footer>
+  </section>

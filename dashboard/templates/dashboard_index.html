@@ -1,0 +1,74 @@
+{% extends 'dashboard_base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block css_style %}
+<style type="text/css">
+.product-imitation {
+    padding : 50px 0px;
+}
+</style>
+{% endblock %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>{{ welcome_msg }}</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a>Usted está en la aplicación CFAdmin</a>
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm-8">
+            <div class="title-action">
+                <a href="" class="btn btn-primary">Configurar App</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        {% for app in apps %}
+        <div class="col-md-3">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+                    <div class="product-imitation">
+                        <div class="">
+
+                            <img src="{{ app.icon.url }}" class="m-b-md" style="height: 100px;" alt="profile">
+
+                        </div>
+                    </div>
+                    <div class="product-desc">
+                        <a href="" class="product-price">
+                            <i class="fa fa-cog"></i>
+                        </a>
+                        <small class="text-muted">Category</small>
+                        <a href="#" class="product-name"> {{ app }}</a>
+                        <div class="small m-t-xs">
+                            Many desktop publishing packages and web page editors now.
+                        </div>
+                        <div class="m-t text-righ">
+                            <a href="{{ app.url }}" class="btn btn-xs btn-success">Ir a la app &nbsp;&nbsp;<i class="fa fa-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+    <script>
+        $(document).ready(function(){
+
+
+        });
+    </script>
+{% endblock %}

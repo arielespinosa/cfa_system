@@ -1,0 +1,28 @@
+{% extends 'base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block css_library %}
+  <link href="{% static 'css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/plugins/daterangepicker/daterangepicker-bs3.css' %}" rel="stylesheet">
+  <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}CFAdmin | Piloto{% endblock %}
+
+{% block aside_navbar %}
+  {% include 'piloto_aside_navbar.html' %}
+{% endblock %}
+
+{% block navbar %}
+  {% include 'piloto_navbar.html' %}
+{% endblock %}
+
+{% block js_library %}
+    <script src="{% static 'js/apps/piloto/docent_work_tables.js' %}"></script>
+    <script src="{% static 'js/apps/piloto/science_work_tables.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/datatableso.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'js/plugins/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+{% endblock %}

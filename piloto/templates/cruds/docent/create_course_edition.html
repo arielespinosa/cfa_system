@@ -1,0 +1,92 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Crear curso</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:index' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Crear curso</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="ibox">
+              <div class="ibox-title">
+                  <h5>Datos del curso</h5>
+              </div>
+              <div class="ibox-content">
+                  <form method="post">
+                      <div class="form-group row">
+                          <div class="col-lg-12">
+                              <div id="duration">
+                                  <label class="font-normal">Fecha</label>
+                                  <div class="input-daterange input-group" id="datepicker">
+                                      <input type="text" class="form-control-sm form-control" name="start_date" value="01/01/2020">
+                                      <span class="input-group-addon bg-green">&nbsp; <strong>:</strong> &nbsp;</span>
+                                      <input type="text" class="form-control-sm form-control" name="end_date" value="12/31/2020">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <div class="col-lg-8">
+                             {{ form.course|as_crispy_field }}
+                          </div>
+                          <div class="col-lg-4">
+                              {{ form.edition|as_crispy_field }}
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              {{ form.teacher|as_crispy_field }}
+                          </div>
+                          <div class="col-lg-6">
+                              {{ form.students|as_crispy_field }}
+                          </div>
+                      </div>
+
+                      <div class="hr-line-dashed"></div>
+                      <div class="form-group row">
+                          <div class="col-sm-4 col-sm-offset-2">
+                              <button class="btn btn-white btn-sm" type="submit">Cancelar</button>
+                              <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script>
+$(document).ready(function(){
+
+    $('#duration .input-daterange').datepicker({
+        keyboardNavigation: false,
+        forceParse: false,
+        autoclose: true
+    });
+
+    $('input[name="daterange"]').daterangepicker();
+
+});
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,97 @@
+<section class="panel panel-default">
+    <div class="row wrapper">
+      <div class="col-sm-8 m-b-xs">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-sm btn-default active">
+            <input type="radio" name="options" id="option1"> Todos
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option2"> Hoy
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option3"> &Uacute;ltimos 3 d&iacute;a
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option4"> Semana
+          </label>
+          <label class="btn btn-sm btn-default">
+            <input type="radio" name="options" id="option5"> Mes
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th width="20"><input type="checkbox"></th>
+            <th class="th-sortable" data-toggle="class">Fecha de Publicaci&oacute;n
+              <span class="th-sort">
+                <i class="fa fa-sort-down text"></i>
+                <i class="fa fa-sort-up text-active"></i>
+                <i class="fa fa-sort"></i>
+              </span>
+            </th>    
+            <th>ISBN</th>       
+            <th>Editorial</th>
+            <th>T&iacute;tulo</th>
+            <th>P&aacute;ginas</th>       
+            <th>Cap&iacute;tulo</th>
+            <th>Pa&iacute;s</th>
+            <th width="80"></th>
+          </tr>
+        </thead>
+        <tbody id="tb_trabajador_libros">          
+          {% for libro in libros %}
+          <tr>
+            <td><input type="checkbox" name="post[]" value="{{ libro.pk }}"></td>
+            <td>{{ libro.fecha_publicado }}</td>       
+            <td>{{ libro.isbn }}</td>
+            <td>{{ libro.editorial }}</td>
+            <td>{{ libro.titulo }}</td>  
+            <td>{{ libro.paginas }}</td>
+            <td>{{ libro.capitulo }}</td>  
+            <td>{{ libro.pais }}</td>  
+            <td class="text-right">
+              <a class="ver_libro" data-id="{% url 'trabajador:ver_libro' libro.pk %}"><i class="fa fa-eye icon-muted"></i></a>
+              <a class="eliminar_libro" data-id="{% url 'trabajador:eliminar_libro' libro.pk %}"><i class="fa fa-trash icon-muted "></i></a>
+            </td>          
+          </tr>
+          {% endfor %}
+
+      </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-5">
+          <strong>
+            <small class="inline m-t-sm m-b-sm">Mostrando {{ libros.start_index }}-{{ libros.end_index }} de {{ libros.paginator.count }} elementos</small>
+          </strong>
+        </div>
+        <div class="col-sm-7 text-right text-center-xs">    
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            {% if libros.has_previous %}
+                <li><a href="?page_libros={{ libros.previous_page_number }}"><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href="?page_libros=1">Inicio</a></li>          
+            {% endif %}
+
+            <li><a href="#"> P&aacute;gina {{ libros.number }} de {{ libros.paginator.num_pages }}</a></li>
+
+            {% if libros.has_next %}
+                <li><a href="?page_libros={{ libros.paginator.num_pages }}">&Uacute;ltima</a></li>
+                <li><a href="?page_libros={{ libros.next_page_number }}"><i class="fa fa-chevron-right"></i></a></li>         
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </section>

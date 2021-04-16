@@ -1,0 +1,119 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block content_wrapper %}
+<div class="m-b-md">
+    <h3 class="m-b-none">Ponencia</h3>
+    <small>Agregue una ponencia a su CV</small>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+           {% if ponencys %}
+           <section class="panel panel-default">
+            <div class="row wrapper">
+            <div class="col-sm-5">
+                <select class="input-sm form-control input-s-sm inline v-middle">
+                  <option value="0">Eliminar seleccionados</option>
+                  <option value="1">Eliminar todos</option>
+                  <option value="2">Exportar</option>
+                </select>
+                <button class="btn btn-sm btn-default">Aplicar</button>
+              </div>
+              <div class="col-sm-4 m-b-xs">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-sm btn-default active">
+                    <input type="radio" name="options" id="option1"> Todos
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option2"> Hoy
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option3"> &Uacute;ltimos 3 d&iacute;a
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option4"> Semana
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option5"> Mes
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="input-group search datagrid-search">
+                <input type="text" class="input-sm form-control" placeholder="Buscar...">
+                    <div class="input-group-btn">
+                      <button class="btn btn-default btn-sm"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped b-t b-light">
+                <thead>
+                  <tr>
+                    <th width="20"><input type="checkbox"></th>
+                    <th>Evento</th>
+                    <th>Ponencia</th>
+                    <th>Participaci&oacute;n</th>
+                    <th width="80"></th>
+                  </tr>
+                </thead>
+                <tbody id="tb_trabajador_ponencys">
+                  {% for ponencia in ponencys %}
+                      <tr>
+                        <td><input type="checkbox" name="post[]" value="{{ ponency.pk }}"></td>
+                        <td>{{ ponencia }}</td>
+                        <td>{{ ponencia.ponency }}</td>
+                        <td>{{ ponencia.participation }}</td>
+                        <td class="text-right">
+                          <a id="detail_course" data-id="#"><i class="fa fa-eye icon-muted"></i></a>
+                          <a id="update_course" data-id="#"><i class="fa fa-pencil icon-muted "></i></a>
+                          <a id="delete_course" data-id="#"><i class="fa fa-trash icon-muted "></i></a>
+                        </td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+              </table>
+            </div>
+            <footer class="panel-footer">
+              <div class="row">
+                <div class="col-sm-5">
+                  <strong>
+                    <small class="inline m-t-sm m-b-sm">Mostrando {{ ponencys.start_index }} al {{ ponencys.end_index }} de {{ certificacions.paginator.count }} elementos</small>
+                  </strong>
+                </div>
+                <div class="col-sm-7 text-right text-center-xs">
+                  <ul class="pagination pagination-sm m-t-none m-b-none">
+                    {% if ponencys.has_previous %}
+                        <li><a href="?pag={{ ponencys.previous_page_number }}"><i class="fa fa-chevron-left"></i></a></li>
+                        <li><a href="?pag=1">Inicio</a></li>
+                    {% endif %}
+
+                    <li><a > P&aacute;gina {{ ponencys.number }} de {{ ponencys.paginator.num_pages }}</a></li>
+
+                    {% if ponencys.has_next %}
+                        <li><a href="?pag={{ ponencys.paginator.num_pages }}">&Uacute;ltima</a></li>
+                        <li><a href="?pag={{ ponencys.next_page_number }}"><i class="fa fa-chevron-right"></i></a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </footer>
+          </section>
+           {% else %}
+            <h1>No tienes</h1>
+           {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content_footer %}
+
+{% endblock %}
+

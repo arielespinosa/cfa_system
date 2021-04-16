@@ -1,0 +1,132 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Trabajo científico</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:index' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Trabajo científico</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="tabs-container">
+              <ul class="nav nav-tabs" role="tablist">
+                  <li><a class="nav-link active" data-toggle="tab" href="#tab-1">Ponencias</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-2">Comisiones</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-3">Thesis</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-4">Servicios</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-5">Proyectos</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-6">Artículos</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-7">Libros</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div role="tabpanel" id="tab-1" class="tab-pane active">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_ponency_realized' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_ponencys.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-2" class="tab-pane">
+                      <div class="panel-body">
+                          <h3>Comisiones</h3>
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-3" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_thesis' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_thesis.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-4" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_service' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_services.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-5" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_project' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_projects.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-6" class="tab-pane">
+                      <div class="panel-body">
+                           <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_article' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_articles.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-7" class="tab-pane">
+                      <div class="panel-body">
+                            <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_book' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_books.html' %}
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+    <script>
+        $(document).ready(function(){
+
+
+        });
+    </script>
+{% endblock %}

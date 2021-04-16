@@ -1,0 +1,26 @@
+[
+  {
+  "model": "dashboard.app",
+    "pk": 1,
+    "fields": {
+      "slug": "piloto",
+      "name": "Piloto"
+    }
+  },
+  {
+  "model": "dashboard.app",
+    "pk": 2,
+    "fields": {
+      "slug": "une",
+      "name": "Unión Eléctrica"
+    }
+  },
+  {
+  "model": "dashboard.app",
+    "pk": 3,
+    "fields": {
+      "slug": "social-media",
+      "name": "Redes Sociales"
+    }
+  }
+]

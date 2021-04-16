@@ -1,0 +1,113 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block content_wrapper %}
+<div class="m-b-md">
+    <h3 class="m-b-none">Certificaciones</h3>
+    <small>Agregue una ponencia a su CV</small>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+            {% if certifications %}
+           <section class="panel panel-default">
+            <div class="row wrapper">
+              <div class="col-sm-8 m-b-xs">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-sm btn-default active">
+                    <input type="radio" name="options" id="option1"> Todos
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option2"> Hoy
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option3"> &Uacute;ltimos 3 d&iacute;a
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option4"> Semana
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option5"> Mes
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="input-group">
+                  <input type="text" class="input-sm form-control" placeholder="Search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-sm btn-default" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped b-t b-light">
+                <thead>
+                  <tr>
+                    <th width="20"><input type="checkbox"></th>
+                    <th>Edici&oacute;n</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de terminaci&oacute;n</th>
+                    <th>Curso</th>
+                    <th>Profesor</th>
+                    <th width="80"></th>
+                  </tr>
+                </thead>
+                <tbody id="tb_trabajador_certifications">
+                  {% for certification in certifications %}
+                      <tr>
+                        <td><input type="checkbox" name="post[]" value="{{ course.pk }}"></td>
+                        <td>{{ coucertificationrse.date }}</td>
+                        <td>{{ certification.certification }}</td>
+                        <td>{{ course.end_date }}</td>
+                        <td>{{ course.course }}</td>
+                        <td>{{ course.teacher }}</td>
+                        <td class="text-right">
+                          <a class="ver_certificacion" data-id=""><i class="fa fa-eye icon-muted"></i></a>
+                          <a class="eliminar_certificacion" data-id=""><i class="fa fa-trash icon-muted "></i></a>
+                        </td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+              </table>
+            </div>
+            <footer class="panel-footer">
+              <div class="row">
+                <div class="col-sm-5">
+                  <strong>
+                    <small class="inline m-t-sm m-b-sm">Mostrando {{ certifications.start_index }} al {{ certifications.end_index }} de {{ certificacions.paginator.count }} elementos</small>
+                  </strong>
+                </div>
+                <div class="col-sm-7 text-right text-center-xs">
+                  <ul class="pagination pagination-sm m-t-none m-b-none">
+                    {% if certifications.has_previous %}
+                        <li><a href="?pag={{ certifications.previous_page_number }}"><i class="fa fa-chevron-left"></i></a></li>
+                        <li><a href="?pag=1">Inicio</a></li>
+                    {% endif %}
+
+                    <li><a > P&aacute;gina {{ certifications.number }} de {{ certifications.paginator.num_pages }}</a></li>
+
+                    {% if certifications.has_next %}
+                        <li><a href="?pag={{ certifications.paginator.num_pages }}">&Uacute;ltima</a></li>
+                        <li><a href="?pag={{ certifications.next_page_number }}"><i class="fa fa-chevron-right"></i></a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </footer>
+          </section>
+           {% else %}
+            <h1>No tienes</h1>
+           {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content_footer %}
+
+{% endblock %}
+

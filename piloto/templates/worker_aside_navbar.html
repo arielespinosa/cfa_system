@@ -1,0 +1,111 @@
+
+ <ul class="nav">
+  <li class="active">
+    <a href="{% url 'piloto:index' %}" class="active">
+      <i class="fa fa-home icon"></i>
+      <span>Inicio</span>
+    </a>
+  </li>
+  <li >
+    <a href="#docency"  >
+      <i class="fa fa-superscript icon"></i>
+      <span class="pull-right">
+        <i class="fa fa-angle-down text"></i>
+        <i class="fa fa-angle-up text-active"></i>
+      </span>
+      <span>Trabajo docente</span>
+    </a>
+    <ul class="nav lt">
+      <li >
+        <a class="menu" href="{% url 'piloto:course_editions' %}" >
+          <span>Cursos</span>
+        </a>
+      </li>
+      <li >
+        <a class="menu" href="{% url 'piloto:worker_certifications' %}" >
+          <span>Certificaciones</span>
+        </a>
+      </li>
+      <li >
+        <a class="menu" href="#" >
+          <span>Tutorias</span>
+        </a>
+      </li>
+      <li >
+        <a class="menu" href="{% url 'piloto:oponencys' %}" >
+          <span>Oponencias</span>
+        </a>
+      </li>
+      <li >
+        <a class="menu" href="{% url 'piloto:tribunals' %}" >
+          <span>Tribunales</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li >
+    <a href="#science" >
+      <i class="fa fa-flask icon"></i>
+      <span class="pull-right">
+        <i class="fa fa-angle-down text"></i>
+        <i class="fa fa-angle-up text-active"></i>
+      </span>
+      <span>Trabajo cient&iacute;fico</span>
+    </a>
+    <ul class="nav lt">
+      <li >
+        <a href="{% url 'piloto:ponencys' %}" >
+          <span>Ponencias</span>
+        </a>
+      </li>
+      <li >
+        <a href="{% url 'piloto:comisions' %}" >
+          <b class="badge bg-info pull-right">369</b>
+          <span>Comisiones</span>
+        </a>
+      </li>
+      <li >
+        <a href="{% url 'piloto:thesis' %}" >
+          <span>Tesis</span>
+        </a>
+      </li>
+       <li >
+        <a href="{% url 'piloto:projects' %}">
+          <span>Proyectos</span>
+        </a>
+      </li>
+      <li >
+        <a href="{% url 'piloto:articles' %}" >
+          <b class="badge pull-right">8</b>
+          <span>Art&iacute;culos</span>
+        </a>
+      </li>
+       <li >
+        <a href="{% url 'piloto:books' %}" >
+          <b class="badge pull-right">8</b>
+          <span>Libros</span>
+        </a>
+      </li>
+      <li >
+        <a href="{% url 'piloto:results' %}" >
+          <span>Resultados</span>
+        </a>
+      </li>
+      <li >
+        <a href="{% url 'piloto:science_prizes' %}" >
+          <span>Premios</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li >
+    <a href=""  >
+      <b class="badge bg-danger pull-right">3</b>
+      <i class="fa fa-cogs icon"></i>
+      <span>Configuraci&oacute;n</span>
+    </a>
+  </li>
+</ul>
+
+
+

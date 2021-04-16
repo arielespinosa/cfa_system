@@ -1,0 +1,278 @@
+[
+  {
+  "model": "piloto.knowledgefield",
+    "pk": 1,
+    "fields": {
+      "name": "Inteligencia artificial"
+    }
+  },
+  {
+  "model": "piloto.knowledgefield",
+    "pk": 2,
+    "fields": {
+      "name": "Metorología sinóptica"
+    }
+  },
+  {
+  "model": "piloto.knowledgefield",
+    "pk": 3,
+    "fields": {
+      "name": "Matemática aplicada"
+    }
+  },
+  {
+  "model": "piloto.knowledgefield",
+    "pk": 4,
+    "fields": {
+      "name": "Modelación"
+    }
+  },
+  {
+  "model": "piloto.municipality",
+    "pk": 1,
+    "fields": {
+      "name": "La Habana del Este"
+    }
+  },
+  {
+  "model": "piloto.municipality",
+    "pk": 2,
+    "fields": {
+      "name": "San Miguel del Padrón"
+    }
+  },
+  {
+  "model": "piloto.municipality",
+    "pk": 3,
+    "fields": {
+      "name": "Regla"
+    }
+  },
+  {
+  "model": "piloto.municipality",
+    "pk": 4,
+    "fields": {
+      "name": "Diez de Octubre"
+    }
+  },
+  {
+  "model": "piloto.costcenter",
+    "pk": 1,
+    "fields": {
+      "name": "Centro de Física de la Atmósfera"
+    }
+  },
+  {
+  "model": "piloto.studycenter",
+    "pk": 1,
+    "fields": {
+      "name": "Universidad de La Habana",
+      "country": "Cuba"
+    }
+  },
+  {
+  "model": "piloto.studycenter",
+    "pk": 2,
+    "fields": {
+      "name": "UTH-CUJAE",
+      "country": "Cuba"
+    }
+  },
+  {
+  "model": "piloto.studycenter",
+    "pk": 3,
+    "fields": {
+      "name": "Max Planck",
+      "country": "Alemania"
+    }
+  },
+  {
+  "model": "piloto.studycenter",
+    "pk": 4,
+    "fields": {
+      "name": "ICIMAF",
+      "country": "Cuba"
+    }
+  },
+  {
+  "model": "piloto.field",
+    "pk": 1,
+    "fields": {
+      "name": "Meteorología"
+    }
+  },
+  {
+  "model": "piloto.field",
+    "pk": 2,
+    "fields": {
+      "name": "Informática"
+    }
+  },
+  {
+  "model": "piloto.field",
+    "pk": 3,
+    "fields": {
+      "name": "Cibernética-Matemática"
+    }
+  },
+  {
+  "model": "piloto.field",
+    "pk": 4,
+    "fields": {
+      "name": "Física"
+    }
+  },
+  {
+  "model": "piloto.workfield",
+    "pk": 1,
+    "fields": {
+      "category": "Ing",
+      "field": 2,
+      "study_center": 2
+    }
+  },
+  {
+  "model": "piloto.workfield",
+    "pk": 2,
+    "fields": {
+      "category": "Lic",
+      "field": 3,
+      "study_center": 1
+    }
+  },
+  {
+  "model": "piloto.workfield",
+    "pk": 3,
+    "fields": {
+      "category": "Lic",
+      "field": 4,
+      "study_center": 1
+    }
+  },
+  {
+  "model": "piloto.workfield",
+    "pk": 4,
+    "fields": {
+      "category": "Lic",
+      "field": 1,
+      "study_center": 1
+    }
+  },
+  {
+  "model": "piloto.office",
+    "pk": 1,
+    "fields": {
+      "name": "Abel"
+    }
+  },
+  {
+  "model": "piloto.office",
+    "pk": 2,
+    "fields": {
+      "name": "Maibys"
+    }
+  },
+  {
+  "model": "piloto.office",
+    "pk": 3,
+    "fields": {
+      "name": "Arnoldo"
+    }
+  },
+  {
+  "model": "piloto.office",
+    "pk": 4,
+    "fields": {
+      "name": "Adrian"
+    }
+  },
+   {
+  "model": "piloto.peopleorganism",
+    "pk": 1,
+    "fields": {
+      "name": "CTC"
+    }
+  },
+  {
+  "model": "piloto.peopleorganism",
+    "pk": 2,
+    "fields": {
+      "name": "FMC"
+    }
+  },
+  {
+  "model": "piloto.politicorganism",
+    "pk": 1,
+    "fields": {
+      "name": "PCC"
+    }
+  },
+  {
+  "model": "piloto.politicorganism",
+    "pk": 2,
+    "fields": {
+      "name": "UJC"
+    }
+  },
+  {
+  "model": "piloto.prize",
+    "pk": 1,
+    "fields": {
+      "name": "Premio 1",
+      "level": "CITMA"
+    }
+  },
+  {
+  "model": "piloto.prize",
+    "pk": 2,
+    "fields": {
+      "name": "Premio 2",
+      "level": "ACC"
+    }
+  },
+  {
+  "model": "piloto.entity",
+    "pk": 1,
+    "fields": {
+      "name": "INSMET",
+      "country": "Cuba"
+    }
+  },
+  {
+  "model": "piloto.entity",
+    "pk": 2,
+    "fields": {
+      "name": "IDRC",
+      "country": "Canadá"
+    }
+  },
+  {
+  "model": "piloto.program",
+    "pk": 1,
+    "fields": {
+      "name": "Programa 1"
+    }
+  },
+  {
+  "model": "piloto.program",
+    "pk": 2,
+    "fields": {
+      "name": "Programa 2"
+    }
+  },
+  {
+  "model": "piloto.place",
+    "pk": 1,
+    "fields": {
+      "name": "CITMA"
+    }
+  },
+  {
+  "model": "piloto.place",
+    "pk": 2,
+    "fields": {
+      "name": "INSMET"
+    }
+  }
+
+]

@@ -1,0 +1,97 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Trabajo científico</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:index' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:science_work' %}">Trabajo científico</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Crear Proyecto</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="ibox">
+                  <div class="ibox-title">
+                      <h5>Datos del proyecto</h5>
+                  </div>
+                  <div class="ibox-content">
+                      <form method="post">
+                          <div class="form-group row">
+                                <div class="col-lg-2">
+                                    {{form.aproved_date|as_crispy_field}}
+                                  </div>
+                                  <div class="col-lg-2">
+                                    {{form.start_date|as_crispy_field}}
+                                  </div>
+                                  <div class="col-lg-2">
+                                    {{form.end_plan_date|as_crispy_field}}
+                                  </div>
+                                  <div class="col-lg-2">
+                                    {{form.end_date|as_crispy_field}}
+                                  </div>
+                                  <div class="col-lg-2">
+                                    {{form.program|as_crispy_field}}
+                                  </div>
+                                  <div class="col-lg-2">
+                                    {{form.cost_center|as_crispy_field}}
+                                  </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-lg-5">
+                                {{form.title|as_crispy_field}}
+                              </div>
+                              <div class="col-lg-1">
+                                {{form.type|as_crispy_field}}
+                              </div>
+                              <div class="col-lg-2">
+                                {{form.level|as_crispy_field}}
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-lg-2">
+                                {{form.boss|as_crispy_field}}
+                                {{form.participants|as_crispy_field}}
+                                {{form.manager_by_cfa|as_crispy_field}}
+                              </div>
+                              <div class="col-lg-2">
+                                {{form.executor_entity|as_crispy_field}}
+                                {{form.entity|as_crispy_field}}
+                              </div>
+                              <div class="col-lg-4">
+                                {{form.description|as_crispy_field}}
+                              </div>
+                          </div>
+                          <div class="hr-line-dashed"></div>
+                          <div class="form-group row">
+                              <div class="col-sm-4 col-sm-offset-2">
+                                  <button class="btn btn-white btn-sm" type="submit">Cancelar</button>
+                                  <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block content_footer %}
+
+{% endblock %}
+

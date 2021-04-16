@@ -1,0 +1,16 @@
+
+.avatar-img{
+    max-height: 50px;
+}
+
+.single-row {
+    margin-bottom: 25px;
+}
+
+.font-green {
+    color: #1ab394;
+}
+
+.bg-green {
+    background-color: #1ab394 !important;
+}

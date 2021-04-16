@@ -1,0 +1,180 @@
+{% load staticfiles %}
+{% load mathfilters %}
+{% load math_tags %}
+
+<div class="wrapper">
+    <div class="clearfix m-b">
+      <a class="pull-left thumb m-r">
+        {% if user.trabajador.foto.url %}
+          <img src="{{ user.trabajador.foto.url }}" class="img-circle">
+        {% else %}
+          <img src="{% static 'images/avatar_default.jpg' %}" class="img-circle">
+        {% endif %}
+      </a>
+      <div class="clear">
+        <div class="h4 m-t-xs m-b-xs">{{ trabajador.nombre_coloquial }}</div>
+        <small class="text-muted">{{ trabajador.get_categoria_ocupacional_display }}</small>
+      </div>                
+    </div>
+
+    <div id="menu">
+      <!-- Datos personales -->
+      <small class="text-uc text-xs text-muted">datos personales</small>
+      <div class="row" style="margin-left: 10px;">            
+        <div class="col-lg-6">
+          <div class="row">Carnet de identidad:</div>
+          <div class="row">Sexo:</div>
+          <div class="row">Direcci&oacute;n:</div>
+          <div class="row">Municipio:</div>
+          <div class="row">Raza:</div>
+          {% if trabajador.area_de_interes %}
+            <div class="row">&Aacute;reas de interes:</div>
+          {% endif %}
+        </div>
+        <div class="col-lg-6">
+          <div class="row">{{trabajador.ci}}</div>
+          <div class="row">{{trabajador.sexo}}</div>
+          <div class="row">{{trabajador.direccion}}</div>
+          <div class="row">{{trabajador.municipio}}</div>
+          <div class="row">{{trabajador.raza}}</div>
+          {% for areas in trabajador.area_de_interes.all %}
+            <div class="row">{{ area }}</div>
+          {% endfor %}
+        </div>            
+      </div>
+      <p></p>
+      <!-- Datos laborales -->
+      <small class="text-uc text-xs text-muted">datos laborales</small>
+      <div class="row" style="margin-left: 10px;">
+        <div class="col-lg-6">
+          <div class="row">Nivel de escolaridad:</div>
+          <div class="row">Especialidad:</div>
+          {% if trabajador.grado_cientifico %}
+            <div class="row">Grado cient&iacute;fico:</div>
+          {% endif %}
+          {% if trabajador.cateogoria_cientifica %}
+            <div class="row">Cateogor&iacute;a cient&iacute;fica:</div>
+          {% endif %}
+          {% if trabajador.cateogoria_docente %}
+            <div class="row">Cateogor&iacute;a docente:</div>
+          {% endif %}
+        </div>
+        <div class="col-lg-6">
+          <div class="row">{{trabajador.nivel_escolar}}</div>
+          <div class="row">{{trabajador.especialidad}}</div>
+          {% if trabajador.grado_cientifico %}
+            <div class="row">{{trabajador.grado_cientifico}}</div>
+          {% endif %}
+          {% if trabajador.cateogoria_cientifica %}
+            <div class="row">{{trabajador.cateogoria_cientifica}}</div>
+          {% endif %}
+          {% if trabajador.cateogoria_docente %}
+            <div class="row">{{trabajador.cateogoria_docente}}</div>
+          {% endif %}
+        </div>
+      </div>
+      <p></p>
+      <!-- Datos laborales | INSMET -->
+      <small class="text-uc text-xs text-muted">Datos laborales | INSMET</small>
+      <div class="row" style="margin-left: 10px;">
+        <div class="col-lg-6">
+          <div class="row">Tarjeta:</div>
+          <div class="row">Plaza:</div>
+          <div class="row">Oficina:</div>
+          <div class="row">Categor&iacute;a ocupacional:</div>
+          <div class="row">Fecha de entrada:</div>
+          {% if trabajador.res_34_19 %}
+            <div class="row">Resoluci&oacute;n 34-19:</div>
+          {% endif %}
+          {% if trabajador.msc_dr %}
+            <div class="row">Bono Msc-Dr:</div>
+          {% endif %}
+          <div class="row">Grupo escala antiguo:</div>
+          <div class="row">Grupo escala actual:</div>
+          <div class="row">Salario escala antiguo:</div>
+          <div class="row">Salario escala actual:</div>
+          {% if trabajador.otros_pagos_antiguo %}
+            <div class="row">Otros pagos antiguo:</div>
+          {% endif %}
+          {% if trabajador.otros_pagos_actual %}
+            <div class="row">Otros pagos actual:</div>
+          {% endif %}
+          {% if trabajador.salario_total_antiguo %}
+            <div class="row">Salario total antiguo:</div>
+          {% endif %}
+          <div class="row">Salario total actual:</div>
+          {% if trabajador.membresias %}
+            <div class="row">Membresias:</div>
+            {% for i in 1|range:trabajador.membresias.all.count %}
+              <div class="row">&nbsp;</div>
+            {% endfor %}
+          {% endif %}
+          {% if trabajador.afiliaciones %}
+            <div class="row">Afiliaciones:</div>
+            {% for i in 1|range:trabajador.afiliaciones.all.count %}
+              <div class="row">&nbsp;</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="col-lg-6">
+          <div class="row">{{trabajador.tarjeta}}</div>
+          <div class="row">{{trabajador.plaza}}</div>
+          <div class="row">{{trabajador.oficina}}</div>
+          <div class="row">{{trabajador.categoria_ocupacional}}</div>
+          <div class="row">{{trabajador.fecha_entrada_insmet}}</div>           
+          {% if trabajador.res_34_19 %}
+            <div class="row">{{trabajador.res_34_19}}</div>
+          {% endif %}
+          {% if trabajador.msc_dr %}
+            <div class="row">{{trabajador.msc_dr}}</div>
+          {% endif %}
+          <div class="row">{{trabajador.plaza.grupo_escala_antiguo}}</div>  
+          <div class="row">{{trabajador.plaza.grupo_escala_actual}}</div>
+          <div class="row">{{trabajador.plaza.salario_escala_antiguo}}</div>
+          <div class="row">{{trabajador.plaza.salario_escala_actual}}</div>
+          {% if trabajador.otros_pagos_antiguo %}
+            <div class="row">{{trabajador.otros_pagos_antiguo}}</div>
+          {% endif %}
+          {% if trabajador.otros_pagos_actual %}
+            <div class="row">{{trabajador.otros_pagos_actual}}</div>
+          {% endif %}
+          {% if trabajador.salario_total_antiguo %}
+            <div class="row">{{trabajador.salario_total_antiguo}}</div>
+          {% endif %}
+          <div class="row">{{trabajador.salario_total_actual}}</div>
+          {% if trabajador.membresias %}
+            {% for organismo in trabajador.membresias.all %}
+              <div class="row">{{ organismo }}</div>
+            {% endfor %}
+          {% endif %}
+          {% if trabajador.afiliaciones %}
+            {% for organismo in trabajador.afiliaciones.all %}
+              <div class="row">{{ organismo }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="line"></div>
+      <small class="text-uc text-xs text-muted">contacto</small>
+      <div class="row" style="margin-left: 10px;">
+        {% for contacto in trabajador.contacto.all %}
+          <div class="row">
+            <div class="col-lg-1">
+              {% if contacto.tipo == 'T' %}
+                <i class="fa fa-phone"></i>
+              {% elif contacto.tipo == 'M' %}
+                <i class="fa fa-mobile"></i>
+              {% elif contacto.tipo == 'E' %}
+                <i class="fa fa-email"></i>
+              {% endif %}
+            </div>
+            <div class="col-lg-3">{{ contacto.get_descripcion_display }}</div>
+            <div class="col-lg-4">{{ contacto.valor }}</div>
+            <div class="row"><span></span></div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>

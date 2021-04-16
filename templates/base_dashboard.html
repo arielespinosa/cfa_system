@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Ariel Juan Penalver Espinosa">
+    <meta name="author" content="Neisy">
+
+    <title>{% block title %}CFAdmin{% endblock %}</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    {% block css_library %}{% endblock %}
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/general_custom_style.css' %}" rel="stylesheet">
+    {% block css_style %}{% endblock %}
+
+
+</head>
+
+{% block body %}
+<body class="">
+
+    <div id="wrapper">
+
+        {% block aside_navbar %} {% endblock %}
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                {% block navbar %} {% endblock %}
+            </div>
+            {% block page_heading %}
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-sm-4">
+                        <h2>This is main title</h2>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">This is</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                <strong>Breadcrumb</strong>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="title-action">
+                            <a href="" class="btn btn-primary">This is action area</a>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block page_content %}
+                <div class="wrapper wrapper-content">
+                    <div class="middle-box text-center animated fadeInRightBig">
+                        <h3 class="font-bold">This is page content</h3>
+                        <div class="error-desc">
+                            You can create here any grid layout you want. And any variation layout you imagine:) Check out
+                            main dashboard and other site. It use many different layout.
+                            <br/><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> &copy; Centro de Física de la Atmósfera | INSMET
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    {% block js_library %}{% endblock %}
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+    {% block js_scripts %}{% endblock %}
+</body>
+{% endblock %}
+
+</html>

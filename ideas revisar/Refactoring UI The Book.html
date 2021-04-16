@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html class="text-sm sm:text-base" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@adamwathan">
+  <meta name="twitter:title" content="Refactoring UI: The Book">
+  <meta name="twitter:description" content="Learn how to design awesome UIs by yourself using specific tactics explained from a developer's point-of-view.">
+  <meta name="twitter:image" content="https://refactoring-ui.nyc3.cdn.digitaloceanspaces.com/landing/twitter-card-launched-optimized.png">
+  <meta name="twitter:creator" content="@adamwathan">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://refactoringui.com/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://refactoringui.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://refactoringui.com/favicon-16x16.png">
+  <link rel="manifest" href="https://refactoringui.com/site.webmanifest">
+  <link rel="mask-icon" href="https://refactoringui.com/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ff0000">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Refactoring UI: The Book</title>
+
+  <link rel="stylesheet" href="Refactoring%20UI%20The%20Book_files/fonts.css">
+  <link rel="stylesheet" href="Refactoring%20UI%20The%20Book_files/main.css">
+  <!-- <script async src="https://gumroad.com/js/gumroad.js"></script> -->
+<script type="text/javascript" async="" src="Refactoring%20UI%20The%20Book_files/analytics.js"></script><script type="text/javascript" src="Refactoring%20UI%20The%20Book_files/jquery.js"></script><style>._3emE9--dark-theme .-S-tR--ff-downloader{background:rgba(30,30,30,.93);border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#fff}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{background:#3d4b52}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#131415}._3emE9--dark-theme .-S-tR--ff-downloader ._10vpG--footer{background:rgba(30,30,30,.93)}._2mDEx--white-theme .-S-tR--ff-downloader{background:#fff;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#314c75}._2mDEx--white-theme .-S-tR--ff-downloader ._6_Mtt--header{font-weight:700}._2mDEx--white-theme .-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{border:0;color:rgba(0,0,0,.88)}._2mDEx--white-theme .-S-tR--ff-downloader ._10vpG--footer{background:#fff}.-S-tR--ff-downloader{display:block;overflow:hidden;position:fixed;bottom:20px;right:7.1%;width:330px;height:180px;background:rgba(30,30,30,.93);border-radius:2px;color:#fff;z-index:99999999;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);transition:.5s}.-S-tR--ff-downloader._3M7UQ--minimize{height:62px}.-S-tR--ff-downloader._3M7UQ--minimize .nxuu4--file-info,.-S-tR--ff-downloader._3M7UQ--minimize ._6_Mtt--header{display:none}.-S-tR--ff-downloader ._6_Mtt--header{padding:10px;font-size:17px;font-family:sans-serif}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{float:right;background:#f1ecec;height:20px;width:20px;text-align:center;padding:2px;margin-top:-10px;cursor:pointer}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#e2dede}.-S-tR--ff-downloader ._13XQ2--error{color:red;padding:10px;font-size:12px;line-height:19px}.-S-tR--ff-downloader ._2dFLA--container{position:relative;height:100%}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info{padding:6px 15px 0;font-family:sans-serif}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info div{margin-bottom:5px;width:100%;overflow:hidden}.-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{margin-top:21px;font-size:11px}.-S-tR--ff-downloader ._10vpG--footer{width:100%;bottom:0;position:absolute;font-weight:700}.-S-tR--ff-downloader ._10vpG--footer ._2V73d--loader{animation:n0BD1--rotation 3.5s linear forwards;position:absolute;top:-120px;left:calc(50% - 35px);border-radius:50%;border:5px solid #fff;border-top-color:#a29bfe;height:70px;width:70px;display:flex;justify-content:center;align-items:center}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar{width:100%;height:18px;background:#dfe6e9;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar ._1FVu9--progress-bar{height:100%;background:#8bc34a;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status{margin-top:10px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1XilH--state{float:left;font-size:.9em;letter-spacing:1pt;text-transform:uppercase;width:100px;height:20px;position:relative}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1jiaj--percentage{float:right}</style></head>
+<body class="font-sans text-black antialiased leading-tight bg-grey-lighter">
+  <div>
+    <div role="presentation" class="h-8 bg-top bg-repeat" style="background-image: url('/img/pattern-purple.svg')"></div>
+    <div class="py-16 bg-grey-lighter overflow-x-hidden">
+      <div class="relative container mx-auto px-8">
+        <div role="presentation" class="absolute pin">
+          <div class="hidden md:block absolute pin-t pin-r md:mr-32 translate-r-full">
+            <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+          </div>
+          <div class="hidden md:block absolute pin-b pin-l ml-16 translate-l-full">
+            <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+          </div>
+        </div>
+        <div class="text-center md:text-left lg:hidden tracking-wide uppercase text-indigo-faded font-bold text-lg mb-4 opacity-75">Now available</div>
+        <h1 class="relative lg:hidden font-semibold text-center md:text-left text-3xl md:text-4xl font-display leading-none mb-8">
+          <span class="md:block">Make your ideas look awesome,</span>
+          <span class="md:block text-indigo-dark">without relying on a designer.</span>
+        </h1>
+        <div class="relative flex flex-wrap flex-col md:flex-row lg:items-center -mx-8">
+          <div class="md:w-3/5 px-8">
+            <div class="mb-12">
+              <div class="hidden lg:block tracking-wide uppercase text-indigo-faded font-bold text-lg xl:text-xl mb-4 opacity-75">Now available</div>
+              <h1 class="hidden lg:block font-semibold text-left md:text-left text-3xl md:text-2xl lg:text-3xl xl:text-5xl font-display leading-none mb-6 xl:mb-8">
+                <span class="sm:block">Make your ideas look awesome,</span>
+                <span class="sm:block text-indigo-dark">without relying on a designer.</span>
+              </h1>
+              <p class="text-xl text-center md:text-left md:text-lg lg:text-xl xl:text-2xl text-grey-dark leading-normal">Learn how to design beautiful user interfaces by yourself using specific tactics explained from a developer's point-of-view.</p>
+            </div>
+            <div class="md:hidden px-8 pt-2 pb-4">
+              <img src="Refactoring%20UI%20The%20Book_files/book-cover-sm.png" alt="">
+            </div>
+
+            <form class="relative max-w-sm" id="ck_subscribe_form" action="https://app.convertkit.com/landing_pages/439908/subscribe" data-remote="true">
+              <input type="hidden" name="id" value="439908" id="landing_page_id">
+              <input type="hidden" name="ck_form_recaptcha" value="" id="ck_form_recaptcha">
+              <span class="block text-grey-dark leading-normal text-center md:text-left text-base xl:text-lg font-semibold mb-6">Sign up for our newsletter to get <span class="text-black font-bold">two free chapter previews</span> on building color palettes and designing without labels.</span>
+
+              <div class="sm:focus-within:shadow-outline rounded-lg">
+                <div class="max-w-sm sm:flex sm:shadow sm:rounded-lg sm:overflow-hidden">
+                  <input type="email" id="ck_emailField" name="email" required="" placeholder="Enter your email" class="shadow sm:shadow-none block w-full rounded-lg focus:border-indigo border border-transparent sm:rounded-r-none mb-4 sm:mb-0 text-black sm:flex-1 px-6 py-4 lg:py-5 focus:outline-none">
+                  <button id="ck_subscribe_button" class="text-sm shadow sm:shadow-none block w-full sm:w-auto rounded-lg sm:rounded-none focus:outline-none bg-indigo hover:bg-indigo-dark focus:bg-indigo-dark text-white text-shadow uppercase tracking-wide font-semibold px-6 py-4 lg:py-5">Get the previews</button>
+                </div>
+              </div>
+
+              <div id="ck_error_msg" class="sm:absolute pin-x text-center md:text-left text-indigo-dark font-semibold mt-6 text-lg" style="display: none;">
+                <p>Something went wrong, please try again.</p>
+              </div>
+            </form>
+            <div class="markdown text-lg mt-6 text-center md:text-left">
+              <p>Or <a href="#get-refactoring-ui">buy now</a> if you're already convinced!</p>
+            </div>
+          </div>
+          <div class="hidden md:block md:w-2/5 px-8 pt-2 lg:pt-16">
+            <img src="Refactoring%20UI%20The%20Book_files/book-cover-sm.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="relative bg-white overflow-x-hidden">
+    <div class="relative max-w-screen-md mx-auto px-8 pt-16 text-xl text-grey-dark leading-normal">
+
+      <div role="presentation" class="absolute pin">
+        <div class="absolute pin-t pin-r p-24 translate-r-full">
+          <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+        </div>
+        <div class="absolute top-1/4 pin-l p-24 translate-l-full">
+          <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+        </div>
+        <div class="absolute top-1/2 pin-r p-24 translate-r-full">
+          <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+        </div>
+        <div class="absolute top-3/4 pin-l p-24 translate-l-full">
+          <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".503"></path></svg>
+        </div>
+      </div>
+
+      <div class="relative">
+
+        <h2 class="max-w-sm mx-auto text-center text-black text-4xl font-display font-semibold leading-tight mb-10">“I know this looks terrible, but I have no idea why.”</h2>
+
+        <p class="mb-6">
+          Hi! I'm <a class="text-black font-semibold underline-indigo" href="https://twitter.com/adamwathan">Adam Wathan</a>, a full stack developer who used to suck at design.
+        </p>
+
+        <p class="mb-6">
+          I've been friends with <a class="text-black font-semibold underline-indigo" href="https://twitter.com/steveschoger">Steve Schoger</a> for years and we've worked on a bunch of side projects together — him handling the UI design and me taking care of development.
+        </p>
+
+        <p class="mb-6">
+          Like a lot of developers, I always wished I could make my 
+ideas look awesome without relying on a designer, but any time I tried 
+to design something myself I would always get frustrated and give up.
+        </p>
+
+        <p class="mb-6">
+          I always chalked it up to a left brain/right brain sort of 
+thing — I'm logical and analytical so I'm good at programming, people 
+like Steve are intuitive and creative so he's good at design.
+        </p>
+
+        <p class="mb-6">
+          But after working closely with Steve I started picking up 
+little tricks. Tricks that didn't require any artistic talent, but made 
+things look better instantly for reasons that made sense to me as a 
+developer.
+        </p>
+
+        <h2 class="text-black text-3xl font-display font-semibold leading-tight mt-12 mb-6">Design with tactics, not talent.</h2>
+
+        <p class="mb-6">
+          Here's a concrete design tactic I bet you see applied every day but haven't explicitly noticed:
+        </p>
+        <p class="mb-6">
+          <strong class="text-black">Use fewer borders.</strong>
+        </p>
+        <p class="mb-6">
+          Borders are a great way to distinguish two elements from one 
+another, but using too many of them can make your design feel busy and 
+cluttered.
+        </p>
+        <p class="mb-12">
+          Instead, try adding a box shadow, using contrasting background colors, or simply adding more space between elements:
+        </p>
+
+        <div class="lg:-mx-24 mb-6">
+          <img class="block w-full" src="Refactoring%20UI%20The%20Book_files/fewer-borders-tip.png" alt="">
+        </div>
+
+        <p class="mb-6">
+          It doesn't take any talent to make changes like this — once 
+you know the tactic you just need to notice the problem and apply the 
+solution.
+        </p>
+
+        <h2 class="text-black text-3xl font-display font-semibold leading-tight mt-12 mb-6">Most design courses are missing the mark.</h2>
+        <p class="mb-6">
+          They focus so much on high level principles like color theory 
+and typography which, while important, never helped me make instant 
+improvements  like the actionable, specific tactics I was picking up 
+from Steve.
+        </p>
+
+        <p class="mb-6">
+          Working together, we knew we could create something better.
+        </p>
+
+        <p class="mb-6">
+           Over the last few years, we've helped thousands of developers get better at design through <a class="text-black font-semibold underline-indigo" href="https://twitter.com/i/moments/994601867987619840">quick tips</a>, <a class="text-black font-semibold underline-indigo" href="https://medium.com/@refactoringui">in-depth articles</a>, and <a class="text-black font-semibold underline-indigo" href="https://www.youtube.com/steveschoger">video tutorials</a>.
+        </p>
+
+        <div class="relative text-center my-16 lg:-mx-4">
+          <figure class="font-display">
+            <blockquote class="text-black relative text-2xl mx-auto italic mb-4">
+              “Please tell me you’re going to write a book with all your tips someday? I’d give you my money in a heartbeat.”
+            </blockquote>
+            <figcaption class="flex items-center justify-center">
+              <img class="rounded-full block h-8 w-8 mr-4" src="Refactoring%20UI%20The%20Book_files/sara-soueidan.jpg" alt="">
+              <a href="https://www.sarasoueidan.com/blog/refactoring-ui/" class="no-underline text-indigo-dark hover:text-indigo uppercase tracking-wide font-bold text-base">Sara Soueidan</a>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="mb-6">
+          <em>Refactoring UI</em> takes everything we know about design 
+and bundles it into one comprehensive package, including a book, 
+screencasts, a component gallery, custom designed assets, and more.
+        </p>
+
+        <p class="mb-6">
+          It’s exactly what I needed when I was struggling to make my projects look awesome.
+        </p>
+
+        <p class="mb-12">
+          <a href="#whats-inside" class="font-semibold text-indigo-dark hover:text-indigo no-underline">Learn more about what's <span class="inline-block">inside →</span></a>
+        </p>
+
+        <div>
+          <img class="block mx-auto" src="Refactoring%20UI%20The%20Book_files/adam-and-steve.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="overflow-x-hidden">
+  <div class="relative max-w-xl mx-auto px-8 py-16 sm:py-32">
+    <div role="presentation" class="absolute pin">
+      <div class="absolute pin-t pin-r p-16 translate-r-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+      <div class="absolute pin-b pin-l p-16 translate-l-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+    </div>
+    <div class="relative mx-auto rounded-full h-24 w-24 p-1.5 border-2 mb-4">
+      <div class="rounded-full p-1.5 border-2">
+        <img class="rounded-full block" src="Refactoring%20UI%20The%20Book_files/erik-kennedy.jpg" alt="">
+      </div>
+    </div>
+    <div class="relative text-center">
+      <figure class="font-display">
+        <blockquote class="relative text-2xl sm:text-3xl mx-auto italic mb-4 px-12 sm:px-16">
+          <div class="absolute pin-t pin-l -mt-5 pl-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M30.216 9H35c-2.591 4.338-4.385 8.474-5.282 12.307h4.784L32.907 32H22.542l.697-4.842C24.435 19.289 27.226 13.237 30.216 9zM12.674 9h4.884c-2.69 4.338-4.485 8.474-5.382 12.307h4.784L15.365 32H5l.698-4.842C6.894 19.289 9.684 13.237 12.674 9z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+
+          I’d put money on it: will be the best UI design book ever written.
+
+          <div class="absolute pin-b pin-r -mb-5 pr-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M9.784 32H5c2.591-4.338 4.385-8.474 5.282-12.307H5.498L7.093 9h10.365l-.697 4.842C15.565 21.711 12.774 27.763 9.784 32zm17.542 0h-4.884c2.69-4.338 4.485-8.474 5.382-12.307H23.04L24.635 9H35l-.698 4.842C33.106 21.711 30.316 27.763 27.326 32z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+        </blockquote>
+        <figcaption class="uppercase text-indigo-dark tracking-wide font-bold text-lg">
+                    <a href="https://twitter.com/erikdkennedy/status/1001836296501805056" class="text-indigo-dark hover:text-indigo no-underline">
+            Erik Kennedy
+          </a>
+                  </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+  
+  <div id="whats-inside" class="bg-white py-16">
+    <div class="text-center px-8">
+      <svg class="block h-24 w-24 mx-auto mb-8" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M11.87 63.903l16.264-40.305c1.886-5.656 8.957-2.356 21.213 9.9 12.255 12.255 15.555 19.326 9.9 21.213L18.94 70.974c-1.885.943-3.771.472-5.657-1.414-1.885-1.886-2.357-3.771-1.414-5.657zM41.569 15.82l2.828-2.829 2.828 2.829-2.828 2.828zM25.305 12.284l2.829-2.828 2.828 2.828-2.828 2.829z" fill="#C3CAEA"></path><path fill="#7282C6" d="M22.477 20.77l2.828-2.829 2.829 2.829-2.829 2.828zM63.514 49.029l3.464-2 2 3.464-3.464 2z"></path><path fill="#98A7E7" d="M58.564 17.21l3.464-2 2 3.463-3.464 2z"></path><path fill="#7282C6" d="M44.422 24.28l3.464-2 2 3.464-3.464 2z"></path><path fill="#98A7E7" d="M69.17 53.272l3.465-2 2 3.464-3.464 2z"></path><path fill="#C3CAEA" d="M62.807 61.1l2-3.465 3.464 2-2 3.465z"></path><path fill="#98A7E7" d="M13.31 44.129l2-3.464 3.463 2-2 3.464z"></path><path fill="#7282C6" d="M64.22 66.707l3.465-2 2 3.464-3.464 2z"></path><path fill="#98A7E7" d="M52.272 59.635l3.464-2 2 3.465-3.464 2zM60.307 52.236c-1.757 1.757-9.83-3.466-18.031-11.667-8.201-8.201-13.425-16.274-11.668-18.032 1.758-1.757 9.83 3.467 18.032 11.668 8.2 8.2 13.424 16.273 11.667 18.03z"></path><path d="M52.231 34.968v-7.071c-.037-3.809 1.948-4.417 5.955-1.824 4.006 2.593 6.128 3.535 6.364 2.828-2.593-3.535-3.182-6.01-1.768-7.424 2.121-2.122 4.95 2.121 7.07 0 1.415-1.415 1.18-3.536-.706-6.364l2.121-2.122c2.828 4.243 3.182 7.425 1.06 9.546-3.181 3.182-8.131-1.06-8.131.354 0 1.414 3.535 4.95 1.414 7.07-2.121 2.122-7.778-2.12-8.485-2.827-.472-.472-.707-.236-.707.707v7.07l-4.187.057z" fill="#C3CAEA"></path><path d="M45.385 43.544c8.678-4.812 18.013-7.218 28.003-7.218v4.243c-11.34-1.112-19.847.608-25.524 5.159a86.092 86.092 0 0 1-2.479-2.184zM38.245 36.285c1.796-12.953.193-19.657-4.808-20.112v-3.535c4.714.943 7.424 4.125 8.132 9.546.663 5.082.186 10.476-1.43 16.18a91.083 91.083 0 0 1-1.894-2.079zM13.991 17.941c.792 1.672 4.597.354 6.01 2.475 1.415 2.121-3.535 3.536-5.303 5.303-1.178 1.179.118 1.768 3.89 1.768 2.12-.236 3.653.118 4.596 1.06.943.944-.236 3.536-3.536 7.779l-1.768-.354c.472-.471 1.415-1.885 2.829-4.242 1.414-2.357.353-3.418-3.182-3.182-2.829 0-4.478-.707-4.95-2.122-.471-1.414.943-2.828 4.243-4.242-2.829 0-4.714-.943-5.657-2.829-.943-1.885.354-4.124 3.889-6.717l1.768 1.06c-2.829 1.415-3.62 2.571-2.829 4.243z" fill="#7282C6"></path></g></svg>
+      <h1 class="text-3xl sm:text-5xl font-display leading-none mb-6">
+        <span class="block font-semibold">What we've put together</span>
+      </h1>
+      <p class="text-2xl text-grey-dark leading-normal max-w-sm mx-auto">
+        It's not just a book — it's everything you need to start producing better designs today.
+      </p>
+    </div>
+
+    <div class="markdown max-w-screen-md mx-auto px-8 text-xl py-16">
+      <p>When we first started working on this project, our ambitions were pretty modest — take all of the <a href="https://twitter.com/i/moments/994601867987619840">tips and tricks we’ve shared on Twitter</a>, bundle them up into one resource, and put it out into the world.</p>
+
+      <p>But the more time we put into planning it, the more we realized
+ that we had an opportunity to create something better than that. 
+Something that wasn’t just a book, but <strong>more like a complete survival kit for designing for the web</strong>.</p>
+
+      <p>Here’s what we ended up with…</p>
+
+      <h2 id="the-book">The Book</h2>
+
+      <p>A beautiful PDF containing <strong>50 incredibly visual chapters</strong> spread across 200+ painstakingly typeset pages.</p>
+
+      <div class="px-6"><img src="Refactoring%20UI%20The%20Book_files/illustration-book-optimized.png" alt=""></div>
+
+      <p>This book contains <em>literally everything</em> we know about web design, distilled into short, easy to read chapters.</p>
+
+      <p>You can check out the full table of contents here:</p>
+
+      <p><a href="https://refactoringui.com/book/table-of-contents/">Check out the full table of contents</a></p>
+
+      <p>Every chapter is designed to be as independent as possible, so 
+you can read them in almost any order. And if you want to sit down and 
+read the whole thing at once, you’ll have no trouble getting through it 
+in just a couple of hours.</p>
+
+      <p>We hate books that repeat the same ideas over and over just to fill out the page count. This book is written a lot like our <a href="https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886">blog posts</a> — every sentence is highlight-worthy.</p>
+
+      <h2>Video Tutorials</h2>
+
+      <p>The book will teach you a ton, but there are some things best learned by watching an expert do it themselves.</p>
+
+      <div class="px-6"><img src="Refactoring%20UI%20The%20Book_files/illustration-videos-optimized.png" alt=""></div>
+
+      <p>We’ve put together three in-depth video tutorials that walk 
+through how to take all of the ideas in the book and apply them to three
+ common UI design scenarios:</p>
+
+      <ol>
+          <li><strong>Designing a complex form interface</strong></li>
+          <li><strong>Building a data-focused dashboard</strong></li>
+          <li><strong>Styling a text-focused landing page</strong></li>
+      </ol>
+
+      <p>Each video is tightly edited and just the right pace, so 
+there’s no wasted time watching me “hmm” and “uhh” my way around the 
+design.</p>
+
+      <h2>The Component Gallery</h2>
+
+      <p>How many times have you found yourself looking at other apps to
+ get ideas for things like button styles, form layouts, or navigation 
+treatments? This has always been a huge pain point for us with our own 
+work, so we built the component gallery to solve it.</p>
+
+      <p>The component gallery is a huge resource of <strong>20+ component/layout categories</strong>, and <strong>200+ individual component styles</strong>.</p>
+
+      <div class="px-6"><img src="Refactoring%20UI%20The%20Book_files/illustration-gallery-optimized.png" alt=""></div>
+
+      <p>It includes medium-fidelity mockups of every idea we could 
+think of, for every component we could think of, including things like:</p>
+
+      <ul>
+          <li>Button styles</li>
+          <li>Login page layouts</li>
+          <li>Marketing page sections</li>
+          <li>Card layouts</li>
+          <li>Table styles</li>
+          <li>Navigation layouts</li>
+      </ul>
+
+      <p>…and much, much more.</p>
+
+      <p>You’ll never have to browse another site for layout inspiration again.</p>
+
+      <h2>Color Palettes</h2>
+
+      <p>If you’ve ever used an online color palette generator, you know
+ that the five swatches they end up giving you are never enough to build
+ out a real interface.</p>
+
+      <p>We set out to solve this by handcrafting <strong>over a dozen comprehensive color palettes</strong> that include 10 shades for each included color, as well as an example UI showing how those colors are intended to be used:</p>
+
+      <div class="px-6"><img src="Refactoring%20UI%20The%20Book_files/illustration-colors-optimized.png" alt=""></div>
+
+      <p>We’ve also put together a huge library of individual color 
+scales that you can use to curate your own palettes, without handpicking
+ every single shade yourself.</p>
+
+      <h2>Font Recommendations</h2>
+
+      <p>Trying to pick the perfect font for a project is a nightmare. 
+There are thousands of fonts to choose from, and trying to make an 
+informed decision without seeing a particular font in the right context 
+takes forever.</p>
+
+      <p>We’ve put together a list of over 30 fonts we absolutely love, 
+and broken it down across three categories: UI, headlines, and article 
+copy.</p>
+
+      <div class="px-6"><img src="Refactoring%20UI%20The%20Book_files/illustration-fonts-optimized.png" alt=""></div>
+
+      <p>Each font is shown in an example UI for that category, so you 
+can get a feel for exactly how it’s going to look where you intend to 
+use it, without having to try each font yourself.</p>
+
+      <p>If you’ve ever felt uneasy trying to choose a typeface, this is going to save you a ton of time.</p>
+
+      <h2>Custom illustrated icons</h2>
+
+      <p>Refactoring UI also includes a set of 200 beautifully illustrated SVG icons:</p>
+
+      <div class="px-16 mb-8"><img src="Refactoring%20UI%20The%20Book_files/illustration-icons-optimized.png" alt=""></div>
+
+      <p>The SVGs are pre-optimized, and the colors can easily be 
+customized to fit your branding with just CSS — no design tool knowledge
+ required.</p>
+
+    </div>
+
+
+    
+  </div>
+  
+
+    <div class="overflow-x-hidden">
+  <div class="relative max-w-xl mx-auto px-8 py-16 sm:py-32">
+    <div role="presentation" class="absolute pin">
+      <div class="absolute pin-t pin-r p-16 translate-r-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+      <div class="absolute pin-b pin-l p-16 translate-l-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+    </div>
+    <div class="relative mx-auto rounded-full h-24 w-24 p-1.5 border-2 mb-4">
+      <div class="rounded-full p-1.5 border-2">
+        <img class="rounded-full block" src="Refactoring%20UI%20The%20Book_files/hemphill.jpg" alt="">
+      </div>
+    </div>
+    <div class="relative text-center">
+      <figure class="font-display">
+        <blockquote class="relative text-2xl sm:text-3xl mx-auto italic mb-4 px-12 sm:px-16">
+          <div class="absolute pin-t pin-l -mt-5 pl-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M30.216 9H35c-2.591 4.338-4.385 8.474-5.282 12.307h4.784L32.907 32H22.542l.697-4.842C24.435 19.289 27.226 13.237 30.216 9zM12.674 9h4.884c-2.69 4.338-4.485 8.474-5.382 12.307h4.784L15.365 32H5l.698-4.842C6.894 19.289 9.684 13.237 12.674 9z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+
+          If you dream of building a successful app on your own, you 
+need Refactoring UI. It's literally the fastest path to creating 
+better-designed apps. It's like cheating!
+  
+
+          <div class="absolute pin-b pin-r -mb-5 pr-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M9.784 32H5c2.591-4.338 4.385-8.474 5.282-12.307H5.498L7.093 9h10.365l-.697 4.842C15.565 21.711 12.774 27.763 9.784 32zm17.542 0h-4.884c2.69-4.338 4.485-8.474 5.382-12.307H23.04L24.635 9H35l-.698 4.842C33.106 21.711 30.316 27.763 27.326 32z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+        </blockquote>
+        <figcaption class="uppercase text-indigo-dark tracking-wide font-bold text-lg">
+                    <a href="https://twitter.com/davidhemphill" class="text-indigo-dark hover:text-indigo no-underline">
+            David Hemphill
+          </a>
+                  </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+  
+  <div id="get-refactoring-ui" class="bg-indigo-darker">
+    <div class="markdown max-w-screen-lg mx-auto px-8 text-xl py-16">
+      <div class="text-center">
+        <h2 class="text-4xl md:text-6xl text-white font-bold mt-0 mb-0">Get Refactoring UI</h2>
+        <p class="text-2xl md:text-3xl text-blue-light font-semibold">Choose the package that works for you.</p>
+      </div>
+
+      <div class="mt-12 block lg:flex lg:items-center lg:flex-row-reverse lg:mt-16">
+        <div class="bg-white shadow rounded-lg max-w-md mx-auto lg:min-w-0 lg:w-3/5 relative overflow-hidden">
+          <div class="px-8 py-6 bg-grey-lighter">
+            <h3 class="text-blue-grey-darker uppercase tracking-wide text-lg sm:text-xl text-center font-bold my-0">
+              The Complete Package
+              
+              
+              
+            </h3>
+          </div>
+
+          <div class="px-8 pb-8 text-base md:text-lg">
+            <div class="text-center py-6 lg:py-4">
+              <span class="line-through opacity-75 inline-flex items-center font-display text-xl md:text-2xl font-semibold text-grey-dark mr-3 sm:mr-4">
+                <span class="text-xl">$</span><span>249</span>
+              </span>
+              <span class="inline-flex items-center font-display text-5xl md:text-6xl font-bold text-black mr-3 sm:mr-4">
+                <span class="text-2xl md:text-3xl">$</span><span>149</span>
+              </span>
+              <span class="inline-flex items-center font-display text-xl md:text-2xl font-bold text-grey-dark mr-3 sm:mr-4">
+                USD
+              </span>
+            </div>
+            <div>
+              <ul class="list-reset px-2 sm:px-6">
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span><strong>The 218-page book</strong> in PDF format</span>
+                  </li>
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span>All three <strong>in-depth video tutorials</strong></span>
+                  </li>
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span><strong>Component inspiration gallery</strong>, featuring 200+ component and layout ideas</span>
+                  </li>
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span>Over a dozen <strong>comprehensive color palettes</strong>, tailored for application UIs</span>
+                  </li>
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span><strong>Curated font showcase</strong>, including 30+ font recommendations categorized by use-case</span>
+                  </li>
+                  <li class="flex items-start mb-4">
+                    <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                    <span><strong>Exclusive icon library</strong>, including 200 easily customizable SVG icons</span>
+                  </li>
+              </ul>
+
+              <div class="text-center mt-12">
+                <a class="block w-full text-xl sm:text-2xl inline-block bg-no-image rounded-lg focus:outline-none bg-indigo hover:bg-indigo-dark focus:bg-indigo-dark text-white font-semibold px-6 py-4 sm:py-5" href="https://gum.co/MyQsm/launchday" data-gumroad-single-product="true">
+                  Buy Now
+                </a>
+                <p class="text-base mt-4 mb-0">Buying for your team? <a href="https://gum.co/nFsfq">View team pricing options</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg mt-16 max-w-xs mx-auto lg:max-w-full lg:rounded-r-none lg:min-w-0 lg:w-2/5 lg:mt-0 overflow-hidden">
+          <div class="px-8 py-6 bg-grey-lighter">
+            <h3 class="text-blue-grey-darker uppercase tracking-wide text-xl text-center font-bold my-0">
+              The Essentials
+            </h3>
+          </div>
+
+          <div class="px-8 pb-8 text-base md:text-lg">
+            <div class="text-center py-4">
+              <span class="line-through opacity-75 inline-flex items-center font-display text-lg md:text-xl font-semibold text-grey-dark mr-2 sm:mr-3">
+                <span class="text-xl">$</span><span>99</span>
+              </span>
+              <span class="inline-flex items-center font-display text-4xl md:text-5xl font-bold text-black mr-2 sm:mr-3">
+                <span class="text-xl md:text-2xl">$</span><span>79</span>
+              </span>
+              <span class="inline-flex items-center font-display text-lg md:text-xl font-bold text-grey-dark mr-2 sm:mr-3">
+                USD
+              </span>
+            </div>
+            <div>
+              <ul class="list-reset px-2 sm:px-6">
+                <li class="flex items-start mb-4">
+                  <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                  <span><strong>The 218-page book</strong> in PDF format</span>
+                </li>
+                <li class="flex items-start mb-4">
+                  <span class="mr-4 mt-1"><svg class="h-5 w-5 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" fill-rule="evenodd"><circle cx="10" cy="10" r="10" fill="#9CE2B6"></circle><polyline stroke="#126D34" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="6 10 8.667 12.667 14 7.333"></polyline></g></svg></span>
+                  <span>All three <strong>in-depth video tutorials</strong></span>
+                </li>
+              </ul>
+
+              
+
+              <div class="text-center mt-12">
+                <a class="w-full text-lg sm:text-xl block bg-no-image rounded-lg focus:outline-none bg-blue-grey hover:bg-blue-grey-dark focus:bg-blue-grey-dark text-blue-grey-darker font-semibold px-6 py-3 sm:py-4" href="https://gum.co/LsTNA/launchday" data-gumroad-single-product="true">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <div class="overflow-x-hidden">
+  <div class="relative max-w-xl mx-auto px-8 py-16 sm:py-32">
+    <div role="presentation" class="absolute pin">
+      <div class="absolute pin-t pin-r p-16 translate-r-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+      <div class="absolute pin-b pin-l p-16 translate-l-full">
+        <svg class="block h-48 w-48" viewBox="0 0 184 184" xmlns="http://www.w3.org/2000/svg"><path d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#4E68D0" fill-rule="evenodd" opacity=".5"></path></svg>
+      </div>
+    </div>
+    <div class="relative mx-auto rounded-full h-24 w-24 p-1.5 border-2 mb-4">
+      <div class="rounded-full p-1.5 border-2">
+        <img class="rounded-full block" src="Refactoring%20UI%20The%20Book_files/sara-soueidan.jpg" alt="">
+      </div>
+    </div>
+    <div class="relative text-center">
+      <figure class="font-display">
+        <blockquote class="relative text-2xl sm:text-3xl mx-auto italic mb-4 px-12 sm:px-16">
+          <div class="absolute pin-t pin-l -mt-5 pl-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M30.216 9H35c-2.591 4.338-4.385 8.474-5.282 12.307h4.784L32.907 32H22.542l.697-4.842C24.435 19.289 27.226 13.237 30.216 9zM12.674 9h4.884c-2.69 4.338-4.485 8.474-5.382 12.307h4.784L15.365 32H5l.698-4.842C6.894 19.289 9.684 13.237 12.674 9z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+
+          If you’re a developer who wants to learn invaluable design 
+tips, following @steveschoger might just be the best thing you do.
+
+          <div class="absolute pin-b pin-r -mb-5 pr-2">
+            <svg class="h-8 w-8 sm:h-12 sm:w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M9.784 32H5c2.591-4.338 4.385-8.474 5.282-12.307H5.498L7.093 9h10.365l-.697 4.842C15.565 21.711 12.774 27.763 9.784 32zm17.542 0h-4.884c2.69-4.338 4.485-8.474 5.382-12.307H23.04L24.635 9H35l-.698 4.842C33.106 21.711 30.316 27.763 27.326 32z" fill="#4E68D0" fill-rule="evenodd"></path></svg>
+          </div>
+        </blockquote>
+        <figcaption class="uppercase text-indigo-dark tracking-wide font-bold text-lg">
+                    <a href="https://twitter.com/SaraSoueidan/status/953355592076230659" class="text-indigo-dark hover:text-indigo no-underline">
+            Sara Soueidan
+          </a>
+                  </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="bg-grey-darker">
+    <div class="container py-24 px-8 mx-auto">
+      <h2 class="text-center font-display text-white text-4xl mb-8">Frequently Asked Questions</h2>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          Can I get a physical copy?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p>We're planning to explore a possible physical version next year, but right now everything is only available digitally.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          Can I get Refactoring UI for my entire team?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p>Sure! <a class="text-white font-medium" href="https://gum.co/nFsfq">Check out our team pricing options here</a>.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          Can I get an invoice?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p>Totally! Click the "Generate" button on your receipt from 
+Gumroad after you purchase and you can generate a detailed invoice with 
+any additional information you need.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          What format are the files? Is there any DRM?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p class="mb-6">The book, component gallery, color palettes, 
+and font recommendations are PDFs, the screencasts are downloadable mp4 
+files, and the icons are SVG.</p>
+          <p>Everything is DRM-free; that crap is annoying.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          Can I upgrade to the complete package later?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p>Of course! Shoot us an email at <a class="text-white font-medium" href="mailto:support@refactoringui.com">support@refactoringui.com</a> and we'll sort you out.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          Does the component gallery include CSS?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p class="mb-6">Short answer is no.</p>
+          <p class="mb-6">Long answer is that the goal with the 
+component gallery is to provide layout and treatment ideas with just 
+enough fidelity to be useful.</p>
+          <p class="mb-6">If you need an idea for a pricing page layout,
+ the idea is that you'd browse the component gallery to find one you 
+like, then combine that with what you learn from the book to create a 
+great-looking design yourself.</p>
+          <p>There are a million ways you could style these components, 
+and we don't want the component gallery to encourage you to make every 
+project look the same.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          What's the license for the icons?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p class="mb-6">You can read a copy of the license <a class="text-white font-medium" href="https://gist.github.com/adamwathan/cbda1bb6c23e3bf4e31f7a98b2ac0edb">here</a>.</p>
+          <p>TL;DR: Do pretty much whatever you want with them, 
+including using them in open-source projects. Just don't resell them or 
+publish them on npm purely to distribute them for free or anything lame 
+like that.</p>
+        </div>
+      </div>
+      <div class="lg:flex lg:flex-wrap lg:items-start border-t border-grey-dark py-8 text-xl">
+        <div class="lg:w-1/3 lg:pr-6 font-bold text-white mb-4 lg:mb-0">
+          What if I decide it's not for me?
+        </div>
+        <div class="lg:w-2/3 lg:pl-6 text-blue-grey-light leading-normal">
+          <p>No problem at all! Email us at <a class="text-white font-medium" href="mailto:support@refactoringui.com">support@refactoringui.com</a> within 60 days and we'll refund you in full, no questions asked.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <script async="" src="Refactoring%20UI%20The%20Book_files/js.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-46803874-8');
+  </script>
+  
+  <script src="Refactoring%20UI%20The%20Book_files/CKJS4.js"></script>
+
+
+</body></html>

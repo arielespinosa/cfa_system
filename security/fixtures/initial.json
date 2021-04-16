@@ -1,0 +1,13 @@
+[
+  {
+  "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "cfa",
+      "password": "pbkdf2_sha256$150000$kKS2MhDZUfQz$RGtCuGU6jYZLWvefdV89iYiwmWLfkSBi4EYPuZQ30d0=",
+      "is_superuser": true,
+      "is_active": true,
+      "is_staff": true
+    }
+  }
+]

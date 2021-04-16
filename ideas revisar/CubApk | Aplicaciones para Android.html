@@ -1,0 +1,1904 @@
+
+
+
+
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+          content="Pasarela de aplicaciones móviles cubanas. Primera plataforma de actualización y difusión de aplicaciones desarrolladas en Cuba ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+    
+    <title>CubApk | Aplicaciones para Android</title>
+
+
+    <script data-ad-client="ca-pub-5162431274527026" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
+
+    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
+    <!--<script>-->
+    <!--(adsbygoogle = window.adsbygoogle || []).push({-->
+    <!--google_ad_client: "ca-pub-5162431274527026",-->
+    <!--enable_page_level_ads: true-->
+    <!--});-->
+    <!--</script>-->
+
+    <meta name="google-site-verification" content="DT1hpPXVN94puEj_zNLp_tgCld3rdYZf_RBPcHkKlxI"/>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CubApk">
+    <link rel="icon" sizes="192x192"
+          href="/assets/images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CubApk">
+    <link rel="apple-touch-icon"
+          href="/assets/images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage"
+          content="/assets/images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://unpkg.com/material-design-lite@1.3.0/dist/material.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700|PT+Sans:700|Source+Sans+Pro:300,700"
+          rel="stylesheet">
+
+    <!-- Material Design icons -->
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+    <link rel="stylesheet"
+          href="https://unpkg.com/material-components-web@0.37.0/dist/material-components-web.min.css"/>
+
+
+    <script src="https://unpkg.com/material-components-web@0.37.0/dist/material-components-web.min.js" async></script>
+    <script src="https://unpkg.com/material-design-lite@1.3.0/dist/material.min.js" async></script>
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="/assets/CACHE/css/output.de61abd047e1.css" type="text/css">
+
+    
+    
+
+    
+    
+
+    
+
+    <script type="text/javascript" src='https://www.google.com/recaptcha/api.js' async></script>
+    <script type="text/javascript" async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-85255410-1', 'cubapk.com');
+        ga('send', 'pageview');
+    </script>
+    <!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+    <script type="text/javascript" async="true">
+        (function () {
+            var host = 'www.themoneytizer.com';
+            var element = document.createElement('script');
+            var firstScript = document.getElementsByTagName('script')[0];
+            var url = 'https://quantcast.mgr.consensu.org'
+                .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js')
+            var uspTries = 0;
+            var uspTriesLimit = 3;
+            element.async = true;
+            element.type = 'text/javascript';
+            element.src = url;
+
+            firstScript.parentNode.insertBefore(element, firstScript);
+
+            function makeStub() {
+                var TCF_LOCATOR_NAME = '__tcfapiLocator';
+                var queue = [];
+                var win = window;
+                var cmpFrame;
+
+                function addFrame() {
+                    var doc = win.document;
+                    var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+                    if (!otherCMP) {
+                        if (doc.body) {
+                            var iframe = doc.createElement('iframe');
+
+                            iframe.style.cssText = 'display:none';
+                            iframe.name = TCF_LOCATOR_NAME;
+                            doc.body.appendChild(iframe);
+                        } else {
+                            setTimeout(addFrame, 5);
+                        }
+                    }
+                    return !otherCMP;
+                }
+
+                function tcfAPIHandler() {
+                    var gdprApplies;
+                    var args = arguments;
+
+                    if (!args.length) {
+                        return queue;
+                    } else if (args[0] === 'setGdprApplies') {
+                        if (
+                            args.length > 3 &&
+                            args[2] === 2 &&
+                            typeof args[3] === 'boolean'
+                        ) {
+                            gdprApplies = args[3];
+                            if (typeof args[2] === 'function') {
+                                args[2]('set', true);
+                            }
+                        }
+                    } else if (args[0] === 'ping') {
+                        var retr = {
+                            gdprApplies: gdprApplies,
+                            cmpLoaded: false,
+                            cmpStatus: 'stub'
+                        };
+
+                        if (typeof args[2] === 'function') {
+                            args[2](retr);
+                        }
+                    } else {
+                        queue.push(args);
+                    }
+                }
+
+                function postMessageEventHandler(event) {
+                    var msgIsString = typeof event.data === 'string';
+                    var json = {};
+
+                    try {
+                        if (msgIsString) {
+                            json = JSON.parse(event.data);
+                        } else {
+                            json = event.data;
+                        }
+                    } catch (ignore) {
+                    }
+
+                    var payload = json.__tcfapiCall;
+
+                    if (payload) {
+                        window.__tcfapi(
+                            payload.command,
+                            payload.version,
+                            function (retValue, success) {
+                                var returnMsg = {
+                                    __tcfapiReturn: {
+                                        returnValue: retValue,
+                                        success: success,
+                                        callId: payload.callId
+                                    }
+                                };
+                                if (msgIsString) {
+                                    returnMsg = JSON.stringify(returnMsg);
+                                }
+                                event.source.postMessage(returnMsg, '*');
+                            },
+                            payload.parameter
+                        );
+                    }
+                }
+
+                while (win) {
+                    try {
+                        if (win.frames[TCF_LOCATOR_NAME]) {
+                            cmpFrame = win;
+                            break;
+                        }
+                    } catch (ignore) {
+                    }
+
+                    if (win === window.top) {
+                        break;
+                    }
+                    win = win.parent;
+                }
+                if (!cmpFrame) {
+                    addFrame();
+                    win.__tcfapi = tcfAPIHandler;
+                    win.addEventListener('message', postMessageEventHandler, false);
+                }
+            };
+
+            if (typeof module !== 'undefined') {
+                module.exports = makeStub;
+            } else {
+                makeStub();
+            }
+
+            var uspStubFunction = function () {
+                var arg = arguments;
+                if (typeof window.__uspapi !== uspStubFunction) {
+                    setTimeout(function () {
+                        if (typeof window.__uspapi !== 'undefined') {
+                            window.__uspapi.apply(window.__uspapi, arg);
+                        }
+                    }, 500);
+                }
+            };
+
+            var checkIfUspIsReady = function () {
+                uspTries++;
+                if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+                    console.warn('USP is not accessible');
+                } else {
+                    clearInterval(uspInterval);
+                }
+            };
+
+            if (typeof window.__uspapi === 'undefined') {
+                window.__uspapi = uspStubFunction;
+                var uspInterval = setInterval(checkIfUspIsReady, 6000);
+            }
+        })();
+    </script>
+    <!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+</head>
+<body class="mdl-demo mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="height: auto">
+    <!-- Add your site or app content here -->
+    <main class="mdl-layout__content">
+        <header class="mdl-layout__header mdl-color--white">
+            <div class="mdl-layout-icon">
+                
+                    <a href="/" class="mdl-badge" data-badge="">
+                        <img class="large" itemprop="logo" alt="CubApk"
+                             src="/assets/images/logo-horiz.png">
+                        <img class="small" itemprop="logo" alt="CubApk"
+                             src="/assets/images/logo-icon.png">
+                    </a>
+                
+                <h1 class="seo-h1 mdl-layout--large-screen-only">Aplicaciones Cubanas para Android</h1>
+
+            </div>
+            <div class="mdl-layout__header-row mdl-layout--large-screen-only">
+                
+                    <nav class="mdl-navigation">
+                        <p><span id="custom_mouse_click" class="circle" title="Hello"></span> Mouse click</p>
+                        <a class="mdl-navigation__link google_auth_link"
+                           data-tip-on="false"
+                           href="/social/login/google-oauth2/">
+                            <span>Entrar </span>
+                            <img src="/assets/images/google.png" alt="google">
+                        </a>
+                    </nav>
+                
+            </div>
+            <div class="mdl-layout__header-row">
+                <nav class="mdl-navigation mdl-color-text--primary mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="/">Home</a>
+                    <a class="mdl-navigation__link active"
+                       href="/store/">Android</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <a class="mdl-navigation__link "
+                               href="/youtubers/">youtubers</a>
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="mdl-navigation__link" href="/youtubers/listado/">Listado</a>
+                        </div>
+                    </div>
+                    <!--	<a class="mdl-navigation__link" href="/youtubers/">youtubers</a> -->
+                    <a class="mdl-navigation__link "
+                       href="/ios/">Ios</a>
+                    <a class="mdl-navigation__link "
+                       href="/teams/">Piquetes</a>
+                    <a class="mdl-navigation__link" href="#contact-us">Contáctenos</a>
+                </nav>
+                <button id="user-menu"
+                        class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--primary mdl-layout--small-screen-only">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                
+                    <a class="google-login-link mdl-navigation__link mdl-layout--small-screen-only google_auth_link"
+                       data-tip-on="false"
+                       href="/social/login/google-oauth2/" data-tip-on="false">
+                        <img src="/assets/images/google.png" alt="google">
+                    </a>
+                
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="user-menu">
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link" href="/">Home</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link active"
+                           href="/store/">Android</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link "
+                           href="/youtubers/">youtubers</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link" href="/youtubers/listado/">Listado</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link "
+                           href="/ios/">Ios</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                        <a class="mdl-navigation__link "
+                           href="/teams/">Piquetes</a>
+                    </li>
+                    <li class="mdl-menu__item  mdl-menu__item--full-bleed-divider">
+                        <a class="mdl-navigation__link" href="#contact-us">Contáctenos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mdl-layout__tab-bar-container">
+                <div class="mdl-layout__tab-bar-button mdl-layout__tab-bar-left-button">
+                    <i class="material-icons">chevron_left</i>
+                </div>
+                
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events"
+         data-upgraded=",MaterialRipple">
+        
+            <a class="mdl-layout__tab" href="/store/turismo">Turismo</a>
+        
+            <a class="mdl-layout__tab" href="/store/juegos">Juegos</a>
+        
+            <a class="mdl-layout__tab" href="/store/directorios">Directorios</a>
+        
+            <a class="mdl-layout__tab" href="/store/gastronomia">Gastronomía</a>
+        
+            <a class="mdl-layout__tab" href="/store/otros">Otros</a>
+        
+            <a class="mdl-layout__tab" href="/store/utiles">Útiles</a>
+        
+            <a class="mdl-layout__tab" href="/store/comunicacion">Comunicación</a>
+        
+            <a class="mdl-layout__tab" href="/store/deporte">Deporte</a>
+        
+            <a class="mdl-layout__tab" href="/store/musica">Música</a>
+        
+            <a class="mdl-layout__tab" href="/store/transporte">Transporte</a>
+        
+            <a class="mdl-layout__tab" href="/store/criptos">Criptos</a>
+        
+    </div>
+
+
+                <div class="mdl-layout__tab-bar-button mdl-layout__tab-bar-right-button">
+                    <i class="material-icons">chevron_right</i>
+                </div>
+            </div>
+        </header>
+
+        
+    <div class="mdl-layout__tab-panel is-active app-list" id="overview">
+        <section class="section--center mdl-grid" style="margin-bottom: 0px;">
+            <div class="mdl-layout-spacer"></div>
+                <div class="sw">
+                    <form method="get" action="/search/" >
+                  <input type="search" class="search" placeholder="Buscar..." name="q"/>
+                  <button class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">search</i></button>
+                </form>
+                </div>
+        </section>
+        <section class="section--center mdl-grid">
+            
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.fpg.showme.man">
+                    <img data-src="/media/icons/640/com.fpg.showme.man_1.1.1.png" alt="Show Me Man!"  title="Show Me Man!">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.fpg.showme.man" class="">Show Me Man!</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1122 |<span itemprop="fileSize">18,8 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.fpg.showme.man/download/12" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.lfantasyc.mlb">
+                    <img data-src="/media/icons/640/com.lfantasyc.mlb_2.1.png" alt="FC Major"  title="FC Major">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.lfantasyc.mlb" class="">FC Major</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>676 |<span itemprop="fileSize">20,2 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.lfantasyc.mlb/download/6" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.lfantasyc.nba">
+                    <img data-src="/media/icons/640/com.lfantasyc.nba_1.1.png" alt="NBAFC"  title="NBAFC">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.lfantasyc.nba" class="">NBAFC</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>510 |<span itemprop="fileSize">20,7 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.lfantasyc.nba/download/2" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.example.aceer.barralateral1">
+                    <img data-src="/media/repo/icons-640/com.example.aceer.barralateral1.7.png" alt="DondeAndo"  title="DondeAndo">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.example.aceer.barralateral1" class="">DondeAndo</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>2411 |<span itemprop="fileSize">4,9 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.example.aceer.barralateral1/download/7" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/apps.cu.gestora">
+                    <img data-src="/media/repo/icons-640/apps.cu.gestora.383.png" alt="Mi Saldo"  title="Mi Saldo">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/apps.cu.gestora" class="">Mi Saldo</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1378 |<span itemprop="fileSize">900,3 KB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/apps.cu.gestora/download/383" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.freedomapps.nautamessenger">
+                    <img data-src="/media/icons/640/com.freedomapps.nautamessenger_21.1.png" alt="Nauta Messenger"  title="Nauta Messenger">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.freedomapps.nautamessenger" class="">Nauta Messenger</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>2590 |<span itemprop="fileSize">7,7 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.freedomapps.nautamessenger/download/21" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.lfantasyc.nfc">
+                    <img data-src="/media/icons/640/com.lfantasyc.nfc_1.1.png" alt="Noticias FC"  title="Noticias FC">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.lfantasyc.nfc" class="">Noticias FC</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>637 |<span itemprop="fileSize">2,5 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.lfantasyc.nfc/download/2" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.excelencias.directoriogourmet">
+                    <img data-src="/media/repo/icons-640/com.excelencias.directoriogourmet.40100.png" alt="Guía Excelencias Cuba"  title="Guía Excelencias Cuba">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.excelencias.directoriogourmet" class="">Guía Excelencias Cuba</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1551 |<span itemprop="fileSize">58,8 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.excelencias.directoriogourmet/download/40100" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.mambitech.dsoles.cerquitica">
+                    <img data-src="/media/icons/640/com.mambitech.dsoles.cerquitica_1.14.png" alt="Cerquitica"  title="Cerquitica">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="2" />
+                    <meta itemprop="ratingCount" content="1" />
+                    
+                        
+    <i class="star active"></i>
+
+    <i class="star active"></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.mambitech.dsoles.cerquitica" class="">Cerquitica</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>868 |<span itemprop="fileSize">25,0 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.mambitech.dsoles.cerquitica/download/14" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.buenafe.sobreviviente">
+                    <img data-src="/media/icons/640/cu.buenafe.sobreviviente_1.0.png" alt="Sobreviviente"  title="Sobreviviente">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.buenafe.sobreviviente" class="">Sobreviviente</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>777 |<span itemprop="fileSize">51,5 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.buenafe.sobreviviente/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/siem.bro.trikity">
+                    <img data-src="/media/icons/640/siem.bro.trikity_1.2.png" alt="SIEMbro v1.2"  title="SIEMbro v1.2">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/siem.bro.trikity" class="">SIEMbro v1.2</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>697 |<span itemprop="fileSize">2,0 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/siem.bro.trikity/download/12" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.rapidoetecsa.prodis.rapidoetecsa">
+                    <img data-src="/media/icons/640/com.rapidoetecsa.prodis.rapidoetecsa_2.3.1.png" alt="Rápido Etecsa"  title="Rápido Etecsa">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.rapidoetecsa.prodis.rapidoetecsa" class="">Rápido Etecsa</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>3489 |<span itemprop="fileSize">2,5 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.rapidoetecsa.prodis.rapidoetecsa/download/5" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.uclv.kaleydobit.xcuba">
+                    <img data-src="/media/icons/640/cu.uclv.kaleydobit.xcuba_1.0.png" alt="XCuba"  title="XCuba">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.uclv.kaleydobit.xcuba" class="">XCuba</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>751 |<span itemprop="fileSize">23,9 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.uclv.kaleydobit.xcuba/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.icaic.cuatrorollosunapelicula">
+                    <img data-src="/media/icons/640/cu.icaic.cuatrorollosunapelicula_1.0.png" alt="4 Rollos una Pelicula"  title="4 Rollos una Pelicula">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.icaic.cuatrorollosunapelicula" class="">4 Rollos una Pelicula</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1507 |<span itemprop="fileSize">50,2 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.icaic.cuatrorollosunapelicula/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.vertex_icaic.laneurona">
+                    <img data-src="/media/repo/icons-640/cu.vertex_icaic.laneurona.2.png" alt="La Neurona 2"  title="La Neurona 2">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.vertex_icaic.laneurona" class="">La Neurona 2</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>3253 |<span itemprop="fileSize">49,8 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.vertex_icaic.laneurona/download/2" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.uci_icai.la_neurona_ra">
+                    <img data-src="/media/icons/640/com.uci_icai.la_neurona_ra_3.7.0.png" alt="La Neurona RA"  title="La Neurona RA">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.uci_icai.la_neurona_ra" class="">La Neurona RA</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1794 |<span itemprop="fileSize">41,1 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.uci_icai.la_neurona_ra/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/isladentro.codestars.com.isladentro20">
+                    <img data-src="/media/icons/640/isladentro.codestars.com.isladentro20_2.0.5%20Beta.png" alt="Isladentro 2"  title="Isladentro 2">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/isladentro.codestars.com.isladentro20" class="">Isladentro 2</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>928 |<span itemprop="fileSize">25,1 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/isladentro.codestars.com.isladentro20/download/2" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.snowood.isladentro.isladentro">
+                    <img data-src="/media/icons/640/com.snowood.isladentro.isladentro_0.7.3.png" alt="Isladentro"  title="Isladentro">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.snowood.isladentro.isladentro" class="">Isladentro</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>828 |<span itemprop="fileSize">20,6 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.snowood.isladentro.isladentro/download/25" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.entumovil.onatentumovil">
+                    <img data-src="/media/icons/640/cu.entumovil.onatentumovil_1.0.png" alt="DJ-08"  title="DJ-08">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.entumovil.onatentumovil" class="">DJ-08</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>3664 |<span itemprop="fileSize">3,7 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.entumovil.onatentumovil/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.aceroyalty.mueblessantana">
+                    <img data-src="/media/icons/640/com.aceroyalty.mueblessantana_1.0.2016.06.21.png" alt="Muebles Santana"  title="Muebles Santana">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.aceroyalty.mueblessantana" class="">Muebles Santana</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>866 |<span itemprop="fileSize">25,0 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.aceroyalty.mueblessantana/download/1020160621" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.fpg.showme.woman">
+                    <img data-src="/media/icons/640/com.fpg.showme.woman_1.0.2.png" alt="Show Me Woman!"  title="Show Me Woman!">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.fpg.showme.woman" class="">Show Me Woman!</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>857 |<span itemprop="fileSize">15,5 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.fpg.showme.woman/download/3" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/labsoft.promo.kehaypahoy">
+                    <img data-src="/media/icons/640/labsoft.promo.kehaypahoy_4.6.16.png" alt="Ke Hay Pa&#39; Hoy?"  title="Ke Hay Pa&#39; Hoy?">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/labsoft.promo.kehaypahoy" class="">Ke Hay Pa&#39; Hoy?</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>926 |<span itemprop="fileSize">10,9 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/labsoft.promo.kehaypahoy/download/118" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/com.cubaplusapps.tvdc">
+                    <img data-src="/media/icons/640/com.cubaplusapps.tvdc_1.0.png" alt="TVDC"  title="TVDC">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="0" />
+                    <meta itemprop="ratingCount" content="0" />
+                    
+                        
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+    <i class="star "></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/com.cubaplusapps.tvdc" class="">TVDC</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1629 |<span itemprop="fileSize">74,1 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/com.cubaplusapps.tvdc/download/1" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                    
+                        
+
+
+
+
+<div class="mdl-cell  mdl-cell--3-col" itemscope itemtype="http://schema.org/MobileApplication">
+    <meta itemprop="operatingSystem" content="Android" />
+    <meta itemprop="applicationCategory" content="store.Category.None" />
+
+    <div class="mdl-card app-card app-horizontal">
+        <div class="mdl-grid">
+            <div class="app-icon" itemprop="image" >
+                <a href="/store/cu.icaic">
+                    <img data-src="/media/icons/640/cu.icaic_1.25.png" alt="Equipo 009 La Invasión de los Pálidos"  title="Equipo 009 La Invasión de los Pálidos">
+                </a>
+            </div>
+            <div class="app-data">
+                <div class="app-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="5" />
+                    <meta itemprop="ratingCount" content="1" />
+                    
+                        
+    <i class="star active"></i>
+
+    <i class="star active"></i>
+
+    <i class="star active"></i>
+
+    <i class="star active"></i>
+
+    <i class="star active"></i>
+
+
+                    
+                </div>
+                <div class="app-title" itemprop="name">
+                    <a href="/store/cu.icaic" class="">Equipo 009 La Invasión de los Pálidos</a>
+                </div>
+                <div class="separator"></div>
+                <div class="app-meta">
+                    <small>1696 |<span itemprop="fileSize">53,8 MB</span></small>
+                    <div class="separator"></div>
+                    
+                    <a href="/store/cu.icaic/download/16" title="Descargar">
+                        <i class="download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    
+                
+                
+                    <div class="pagination mdl-cell--12-col text-center">
+                        <span class="step-links">
+                            
+
+                            <span class="current">
+                                Page 1 of 11
+                            </span>
+
+                            
+                                <a href="?page=2">
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            
+                        </span>
+                    </div>
+                
+            
+        </section>
+    </div>
+
+    
+
+
+<div id="contact-us">
+    <section class="section--center mdl-grid">
+        <div class="mdl-cell--12-col">
+            <h3>¿Eres emprendedor? ¿Quieres compartir tu aplicación? Envíanos un mensaje y te responderemos con instrucciones</h3>
+            <h4>También apreciamos tus comentarios y sugerencias</h4>
+        </div>
+        <div class="mdl-cell--12-col mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col" style="margin-right: 100px;">
+                <img src="/assets/images/arch.png">
+            </div>
+            <div class="mdl-cell mdl-cell--7-col">
+                <form action="/contact/" id="form" method="post">
+                    
+                    <input type="hidden" name="csrfmiddlewaretoken" value="S0YC0RXqEst0wsLbZ3sW1Tw6nSprMEyjhwKj3SIN0BsdX0xlMjVr54m3StwCMpiJ">
+                    
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                            <input class="mdl-textfield__input" name="email"
+                                   type="email" id="email" >
+                            <label class="mdl-textfield__label"
+                                   for="email">Tu correo...</label>
+                            <span class="mdl-textfield__error">Esto no es un correo!</span>
+                            
+                        </div>
+                    
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                        <textarea class="mdl-textfield__input" name="body"
+                              type="text" rows="5" id="body" ></textarea>
+                        <label class="mdl-textfield__label"
+                               for="body">Escríbenos...</label>
+                       
+                    </div>
+                    <div class="mdl-cell--12-col">
+                        <input type="submit" value="Send"
+                               class="mdl-button mdl-js-button mdl-js-ripple-effect pull-right">
+                    </div>
+
+                    <script src="https://www.google.com/recaptcha/api.js"></script>
+<script type="text/javascript">
+    // Submit function to be called, after reCAPTCHA was successful.
+    var onSubmit_4e7138edcce2445fbfcf16358d9f94c9 = function(token) {
+        console.log("reCAPTCHA validated for 'data-widget-uuid=\"4e7138edcce2445fbfcf16358d9f94c9\"'")
+    };
+</script>
+
+<div class="g-recaptcha"
+     id="id_captcha" required data-sitekey="6Lcx4NAZAAAAAMlkOx-hjAdxwzqmV7EBCf0kmU97" data-widget-uuid="4e7138edcce2445fbfcf16358d9f94c9" data-callback="onSubmit_4e7138edcce2445fbfcf16358d9f94c9" data-size="normal"
+>
+</div>
+                    
+
+                </form>
+                <div class="mdl-cell--6-col">
+	                
+            	</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+        <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--middle-section">
+                <!-- <div class="mdl-mega-footer--drop-down-section">
+                        <input class="mdl-mega-footer--heading-checkbox"
+                               type="checkbox" checked>
+                        <h5 class="mdl-mega-footer--heading">
+                            Aceptamos donaciones en <img src="/assets/images/bitcoin_logo.png" style="width:30px;" alt="bitcoin">
+                        </h5>
+                        <img src="/assets/images/wallet.png" alt="">
+                    </div> -->
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox"
+                           type="checkbox" checked>
+                    <h5 class="mdl-mega-footer--heading">Nuevos Lanzamientos</h5>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="/#app-updates">Actualizaciones</a></li>
+                        <li><a href="/#top-apps">Nuevas Apps</a></li>
+                    </ul>
+                </div>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox"
+                           type="checkbox" checked>
+                    <h5 class="mdl-mega-footer--heading">Enlaces</h5>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="http://www.entumovil.cu" target="_blank" rel="noreferrer">Entumovil</a></li>
+                        <li><a href="http://jorgen.cubava.cu/" target="_blank" rel="noreferrer">TuAndroid</a></li>
+                    </ul>
+                </div>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox"
+                           type="checkbox" checked>
+                    <h5 class="mdl-mega-footer--heading">Social</h5>
+                    <ul class="mdl-mega-footer--link-list">
+
+                            <span itemscope itemtype="http://schema.org/Organization">
+                      <link itemprop="url" href="http://cubapk.com.com">
+                            <li style="display: inline;">
+                                <a itemprop="sameAs" href="https://www.facebook.com/cubapks/" target="_blank"
+                                   rel="noreferrer">
+                                    <img src="/assets/images/facebook.png" alt="facebook">
+                                </a>
+                            </li>
+                            <li style="display: inline;">
+                                <a itemprop="sameAs" href="https://twitter.com/CubaApk" target="_blank"
+                                   rel="noreferrer">
+                                    <img src="/assets/images/twitter.png" alt="twitter">
+                                </a>
+                            </li>
+
+                         </span>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="/assets/images/logo-alt.png"
+                         alt="CubApk" title="CubApk">
+                    <div class="slogan">
+                        <span class="color-cub">Pasarela de aplicaciones</span>
+                        <br/>
+                        <span class="color-apk">móviles cubanas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-mega-footer--bottom-section">
+                <div class="pull-right">
+                    <span>Copyright 2020.</span>
+                    <a href="http://www.openjaf.com" target="_blank" rel="noreferrer">
+                        <img src="/assets/images/openjaf.png" alt="openjaf">
+                    </a>
+                    <span>Todos los derechos reservados</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+</body>
+</html>
+
+
+<script>
+    [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.onload = function () {
+            img.removeAttribute('data-src');
+        };
+    });
+</script>

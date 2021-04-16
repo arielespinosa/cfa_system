@@ -1,0 +1,37 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>{{ welcome_msg }}</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a>Usted está en la aplicación Piloto. Aplicación desarrollada para la gestión del CFA</a>
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm-8">
+            <div class="title-action">
+                <a href="" class="btn btn-primary"><i class="fa fa-cog"></i></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+    <script>
+        $(document).ready(function(){
+
+
+        });
+    </script>
+{% endblock %}
