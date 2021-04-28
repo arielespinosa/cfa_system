@@ -72,6 +72,8 @@ urlpatterns = [
     path('premio_cientifico/<int:pk>/eliminar/', view_science.DeleteSciencePrize.as_view(), name="delete_science_prize"),
 
     # DOCENT
+    # General
+    path('docent_work', view_docent.WorkerDocentWorkView.as_view(), name='docent_work'),
     # Create
     path('course/create', view_docent.CreateCourse.as_view(), name='create_course'),
     path('course_edition/create', view_docent.CreateCourseEdition.as_view(), name='create_course_edition'),

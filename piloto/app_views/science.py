@@ -17,6 +17,7 @@ from piloto.app_forms import science as forms
 from piloto.app_views.mixins import MixinListView
 
 
+# GENERICS VIEWS
 class WorkerScienceWorkView(generic.TemplateView):
     template_name = 'cruds/science/worker_science_work.html'
 
@@ -124,7 +125,7 @@ class CreateComision(SingleCreateObjectMixin, generic.CreateView):
 class CreateThesis(SingleCreateObjectMixin, generic.CreateView):
     template_name = 'cruds/science/create_thesis.html'
     form_class = forms.FormThesis
-    success_message = 'La Thesis se añadio satisfactoriamente.'
+    success_message = 'La tesis se añadio satisfactoriamente.'
     success_url = reverse_lazy('piloto:thesis')
 
     def post(self, request, *args, **kwargs):
@@ -461,8 +462,7 @@ class ListThesis(ListObjectPaginatorMixin, MixinListView):
 
             tutors = [tutor.coloquial_name for tutor in thesis.tutors.all()]
 
-            data.append([checkbox, thesis.title, thesis.grade, thesis.field, thesis.study_center.name,
-                         thesis.start_date, thesis.end_date, tutors, ''])
+            data.append([checkbox, thesis.title, thesis.grade, tutors, ''])
         return data
 
     def get(self, request, *args, **kwargs):

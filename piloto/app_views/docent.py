@@ -17,6 +17,11 @@ from piloto.app_models.science import Thesis, Result, Project, Article
 from piloto.app_forms import docent as forms
 
 
+# GENERICS VIEWS
+class WorkerDocentWorkView(generic.TemplateView):
+    template_name = 'worker/docent_work.html'
+
+
 # CREATE VIEWS
 class CreateCourse(SingleCreateObjectMixin, generic.CreateView):
     template_name = 'cruds/docent/create_course.html'
