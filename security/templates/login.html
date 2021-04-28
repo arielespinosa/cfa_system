@@ -8,12 +8,28 @@
 <link href="{% static 'css/plugins/bootstrapSocial/bootstrap-social.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block css_style %}
+<style type="text/css">
+    .middle-box {
+        padding-top: 0px !important;
+        padding-bottom: 50px !important;
+    }
+    .loginColumns { padding: 50px 20px 20px 20px; !important }
+}
+
+
+</style>
+{% endblock %}
+
+
 {% block body %}
 <body class="gray-bg">
 
     <div class="loginColumns animated fadeInDown">
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <img src="{% static 'images/logo_cfa.svg' %}" alt="profile">
+        </div>
         <div class="row">
-
             <div class="col-md-6">
                 <h2 class="font-bold" style="margin-top: 0px;">Bienvenido a CFAdmin</h2>
                 <p>

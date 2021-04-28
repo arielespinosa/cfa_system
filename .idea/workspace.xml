@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b840252e-81a1-42c0-a6d8-79d10d037238" name="Default Changelist" comment="" />
+    <list default="true" id="b840252e-81a1-42c0-a6d8-79d10d037238" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfa_system/mixins/mixins_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfa_system/mixins/mixins_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_forms/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_forms/science.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/nomenclators.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/nomenclators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/science.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency_realized.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency_realized.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/worker_science_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/worker_science_work.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/security/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CFA_Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/logo_cfa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_dashboard.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,25 +34,30 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1m48vzhYP84PvnUUEoQQk6k5eHQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/piloto/templates/cruds/science" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/dashboard/templates" />
+      <recent name="$PROJECT_DIR$/piloto/templates/cruds/nomenclators" />
+      <recent name="$PROJECT_DIR$/piloto/app_views" />
+      <recent name="$PROJECT_DIR$/dashboard/app_views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/piloto/templates/cruds/science" />
       <recent name="$PROJECT_DIR$/dashboard/templates" />
       <recent name="$PROJECT_DIR$/piloto/templates/tables" />
       <recent name="$PROJECT_DIR$/static/js/apps/piloto" />
       <recent name="$PROJECT_DIR$/piloto/app_views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/dashboard/templates" />
-      <recent name="$PROJECT_DIR$/piloto/templates/cruds/nomenclators" />
-      <recent name="$PROJECT_DIR$/piloto/app_views" />
-      <recent name="$PROJECT_DIR$/dashboard/app_views" />
-      <recent name="$PROJECT_DIR$/dashboard/modelos" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,5 +107,18 @@
       <updated>1608741737706</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

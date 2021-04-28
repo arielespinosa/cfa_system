@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
-<form id='crear_curso' role="form" method="POST" class="" action="">
+<form id='crete_curso' role="form" method="POST" class="" action="">
   {% csrf_token %}
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -36,8 +36,8 @@
   </div>
 
   <div class="modal-footer">
-    <button id="boton" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-    <button type="button" class="submit-btn btn btn-primary">A&ntilde;adir</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-primary">A&ntilde;adir</button>
   </div>      
 </form>
 

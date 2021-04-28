@@ -115,7 +115,7 @@ class CreateEvent(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_event.html'
     form_class = forms.FormEvent
     success_message = 'La tarea se creo satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:science_work')
 
 
 

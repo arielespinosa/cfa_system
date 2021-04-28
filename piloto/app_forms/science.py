@@ -3,9 +3,11 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from bootstrap_modal_forms.forms import BSModalForm
 from cfa_system.mixins.forms import FlexibleCrispyForm
+from piloto.app_models.workers import Worker
 from piloto.app_models.science import (
     Ponency, PonencyRealized, Comision, Thesis, Project, Article, Service, Book, Result, SciencePrize
 )
+from piloto.app_models.nomenclators import Event
 
 from .utils import all_persons_choices, work_field_choices, scientific_elements_choices
 
@@ -52,18 +54,17 @@ class FormPonency(BSModalForm):
 
     @property
     def is_empity(self):
-        self.is_valid()
-        print(self.clean())
-        print(self.fields.keys())
         return False
 
-    def __init__(self, request=None, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(FormPonency, self).__init__(*args, **kwargs)
-        self.fields['authors'].choices = all_persons_choices(request.user.worker)
+        #self.fields['authors'].choices = all_persons_choices(self.request.user.worker)
+        self.fields['authors'].choices = all_persons_choices()
 
 
-class FormPonencyRealized(BSModalForm):
-    #ponency = forms.MultipleChoiceField(choices=[], required=False)
+class FormPonencyRealized(forms.ModelForm):
+    event = forms.ModelChoiceField(label='Evento', queryset=Event.objects.all(),widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Eventos...'}))
+    ponency = forms.ModelChoiceField(label='Ponencia', queryset=None, widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Ponencias...'}), required=False)
 
     class Meta:
         model = PonencyRealized
@@ -74,12 +75,14 @@ class FormPonencyRealized(BSModalForm):
             'participation': _('Participación')
         }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, request=None, *args, **kwargs):
         super(FormPonencyRealized, self).__init__(*args, **kwargs)
-        print(self.request.user.worker.ponencys.all())
-        self.fields['ponency'].choices = self.request.user.worker.ponencys.all()
+        if request:
+            self.fields['ponency'].queryset = request.user.worker.ponencys.all()
 
-
+        
+      
+ 
     @property
     def is_empity(self):
         self.is_valid()

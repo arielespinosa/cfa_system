@@ -24,16 +24,34 @@
 {% block page_content %}
     <div class="wrapper wrapper-content animated fadeInRight">
       <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
               <div class="ibox">
                   <div class="ibox-title">
                       <h5>Datos de la ponencia</h5>
                   </div>
                   <div class="ibox-content">
-                      <form method="post">
+                      <form role="form" method="post">
+                          {% csrf_token %}
                           <div class="form-group row">
                               <div class="col-lg-4">
-                                  {{form.event|as_crispy_field}}
+                                  {{ form.event|as_crispy_field }}
+                                  <!--
+                                  <select data-placeholder="Eventos..." class="chosen-select"  tabindex="2" name="event"></select>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control">
+                                        <div class="input-group-append show">
+                                            <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="true">Action </button>
+                                            <ul class="dropdown-menu float-right show" x-placement="top-start" style="position: absolute; top: -159px; left: 742px; will-change: top, left;">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                  </div>
+                                  -->
+
                               </div>
                               <div class="col-lg-4">
                                   {{form.ponency|as_crispy_field}}
@@ -45,7 +63,7 @@
                           <div class="hr-line-dashed"></div>
                           <div class="form-group row">
                               <div class="col-sm-4 col-sm-offset-2">
-                                  <button class="btn btn-white btn-sm" type="submit">Cancelar</button>
+                                  <button class="btn btn-white btn-sm" type="button">Cancelar</button>
                                   <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
                               </div>
                           </div>
@@ -61,3 +79,10 @@
 
 {% endblock %}
 
+{% block js_scripts %}
+    <script>
+        $(document).ready(function(){
+            $('.chosen-select').chosen({width: "100%"});
+        });
+    </script>
+{% endblock %}

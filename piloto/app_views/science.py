@@ -22,7 +22,7 @@ class WorkerScienceWorkView(generic.TemplateView):
 
 
 # CREATE VIEWS
-class CreatePonency(SingleCreateObjectMixin, generic.CreateView):
+class CreatePonency(BSModalCreateView):
     template_name = 'cruds/science/create_ponency.html'
     form_class = forms.FormPonency
     success_message = 'La ponencia se añadio satisfactoriamente.'
@@ -36,12 +36,20 @@ class CreatePonency(SingleCreateObjectMixin, generic.CreateView):
             element = form.save(commit=False)
             element.save()
 
-            for author_pk in request.POST.getlist('authors'):
-                try:
-                    author = Worker.objects.get(pk=author_pk)
-                except ObjectDoesNotExist:
-                    author = ExternalPerson.objects.get(pk=author_pk)
-                element.authors.add(author)
+            authors = request.POST.getlist('authors', None)
+
+            if authors:
+                if not (request.user.worker.pk in authors):
+                    element.authors.add(request.user.worker)
+
+                for author_pk in authors:
+                    try:
+                        author = Worker.objects.get(pk=author_pk)
+                    except ObjectDoesNotExist:
+                        author = ExternalPerson.objects.get(pk=author_pk)
+                    element.authors.add(author)
+            else:
+                element.authors.add(request.user.worker)
 
             if request.is_ajax():
                 data = {
@@ -55,16 +63,29 @@ class CreatePonency(SingleCreateObjectMixin, generic.CreateView):
             return super().post(request, *args, **kwargs)
 
 
-class CreatePonencyRealized(SingleCreateObjectMixin, generic.CreateView):
+class CreatePonencyRealized(generic.CreateView):
     template_name = 'cruds/science/create_ponency_realized.html'
     form_class = forms.FormPonencyRealized
     success_message = 'La ponencia se añadio satisfactoriamente.'
     success_url = reverse_lazy('piloto:ponencys')
 
+    def get_context_data(self, **kwargs):
+        context = super(CreatePonencyRealized, self).get_context_data(**kwargs)
+        context['form'] = self.form_class(request=self.request)
+        return context
+    
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        form.request = request
 
+        PonencyRealized.objects.create(event=Event.objects.get(pk=8), ponency=Ponency.objects.get(pk=2), participation='PAP', worker=request.user.worker)
+        #form = self.form_class(data=request.POST)
+        #form.request = request
+
+        #print(form.is_valid(), form.errors)
+        #element = form.save(commit=False)
+        #element.worker = request.user.worker
+        #element.save()
+        return HttpResponseRedirect(self.success_url)
+ 
         if form.is_valid():
             element = form.save(commit=False)
             element.worker = request.user.worker
@@ -384,10 +405,10 @@ class ListPonencyRealized(ListObjectPaginatorMixin, generic.ListView):
                    </td>
                """.format(ponency.pk)
 
-            authors = [author.coloquial_name for author in ponency.authors.all()]
+            authors = [author.coloquial_name for author in ponency.ponency.authors.all()]
 
             data.append(
-                [checkbox, ponency.event.name, ponency.title, authors, ponency.participation, ''])
+                [checkbox, ponency.event.name, ponency.ponency.title, authors, ponency.participation, ''])
         return data
 
     def get(self, request, *args, **kwargs):

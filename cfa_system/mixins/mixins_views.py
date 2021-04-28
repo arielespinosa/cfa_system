@@ -16,8 +16,7 @@ class SingleCreateObjectMixin(object):
         form.request = request
 
         if form.is_valid():
-            element = form.save(commit=True)
-            element.save()
+            form.save()
 
             if request.is_ajax():
                 data = {

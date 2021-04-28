@@ -1,15 +1,14 @@
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
-<!-- Crear/Asignar Artículo -->
-<form id='crear_entidad' role="form" method="POST" class="" action="">
+<form id='create' role="form" method="POST">
   {% csrf_token %}
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h5 class="modal-title font-bold" id="myModalLabel">A&Ntilde;ADIR EVENTO</h5>
+    <h5 class="modal-title font-bold">A&Ntilde;ADIR EVENTO</h5>
   </div>
   <div class="modal-body">    
-    <div class="form-group pull-in clearfix">
+    <div class="form-group">
       <div class="col-sm-12">
         {{ form|crispy }}
       </div>

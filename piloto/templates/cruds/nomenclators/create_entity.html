@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 <!-- Crear/Asignar Artículo -->
-<form id='crear_entidad' role="form" method="POST" class="" action="">
+<form id='create_entity' role="form" method="POST" class="" action="">
   {% csrf_token %}
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -17,7 +17,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-    <button type="button" class="submit-btn btn btn-primary">Aceptar</button>
+    <button type="submit" class="btn btn-primary">Aceptar</button>
   </div>      
 </form>
 
