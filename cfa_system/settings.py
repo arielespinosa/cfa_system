@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap_modal_forms',
     'crispy_forms',
     'notifications',
+    'portal',
     'dashboard',
     'security',
     'piloto',

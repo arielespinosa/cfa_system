@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b840252e-81a1-42c0-a6d8-79d10d037238" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/piloto/features/enviroment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/piloto/templates/worker/docent_work.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfa_system/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfa_system/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/app_views/docent.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/docent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/app_views/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/science.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_science_prize.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_science_prize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_thesis.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_thesis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/templates/tables/tbl_thesis.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/tables/tbl_thesis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfa_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfa_system/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_dashboard.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,23 +30,23 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/piloto/templates/worker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/portal/views" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/piloto/templates/worker" />
-      <recent name="$PROJECT_DIR$/piloto/features" />
-      <recent name="$PROJECT_DIR$/piloto/templates/cruds/science" />
-      <recent name="$PROJECT_DIR$/dashboard/templates" />
-      <recent name="$PROJECT_DIR$/piloto/templates/tables" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/dashboard/templates" />
       <recent name="$PROJECT_DIR$/piloto/templates/cruds/nomenclators" />
       <recent name="$PROJECT_DIR$/piloto/app_views" />
-      <recent name="$PROJECT_DIR$/dashboard/app_views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/portal/views" />
+      <recent name="$PROJECT_DIR$/portal/templates" />
+      <recent name="$PROJECT_DIR$/portal" />
+      <recent name="$PROJECT_DIR$/piloto/templates/worker" />
+      <recent name="$PROJECT_DIR$/piloto/features" />
     </key>
   </component>
   <component name="RunDashboard">
