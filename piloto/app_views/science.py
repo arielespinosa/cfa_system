@@ -76,17 +76,9 @@ class CreatePonencyRealized(generic.CreateView):
         return context
     
     def post(self, request, *args, **kwargs):
+        form = self.form_class(data=request.POST)
+        form.request = request
 
-        PonencyRealized.objects.create(event=Event.objects.get(pk=8), ponency=Ponency.objects.get(pk=2), participation='PAP', worker=request.user.worker)
-        #form = self.form_class(data=request.POST)
-        #form.request = request
-
-        #print(form.is_valid(), form.errors)
-        #element = form.save(commit=False)
-        #element.worker = request.user.worker
-        #element.save()
-        return HttpResponseRedirect(self.success_url)
- 
         if form.is_valid():
             element = form.save(commit=False)
             element.worker = request.user.worker
@@ -171,15 +163,24 @@ class CreateThesis(SingleCreateObjectMixin, generic.CreateView):
             return super(CreateThesis, self).post(request, *args, **kwargs)
 
 
-class CreateService(SingleCreateObjectMixin, generic.CreateView):
+class CreateService(generic.CreateView):
     template_name = 'cruds/science/create_service.html'
     form_class = forms.FormService
     success_message = 'El Service se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:services')
+    success_url = reverse_lazy('piloto:science_work')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({'form': self.form_class(request=self.request)})
+        return context
 
     def post(self, request, *args, **kwargs):
-        form_service = self.form_class(request.POST)
-        form_service.request = request
+        form_service = self.form_class(data=request.POST, request=None)
+        #form_service.request = request
+
+        print(form_service.is_valid())
+        print(form_service.errors)
+        a = form_service.is_valid()
 
         if form_service.is_valid():
             responsible_pk = request.POST.get('responsible')
@@ -207,7 +208,10 @@ class CreateService(SingleCreateObjectMixin, generic.CreateView):
             }
             return HttpResponseRedirect(self.success_url)
         else:
-            return super(CreateService, self).post(request, *args, **kwargs)
+            #form = self.form_class(data=request.POST, request=request)
+            form_service.reload_fields(request)
+            return render(request, self.template_name, {'form': form_service})
+            #return super(CreateService, self).post(request, *args, **kwargs)
 
 
 class CreateProject(SingleCreateObjectMixin, generic.CreateView):
@@ -462,7 +466,7 @@ class ListThesis(ListObjectPaginatorMixin, MixinListView):
 
             tutors = [tutor.coloquial_name for tutor in thesis.tutors.all()]
 
-            data.append([checkbox, thesis.title, thesis.grade, tutors, ''])
+            data.append([checkbox, thesis.title, thesis.grade, thesis.field.name, tutors, ''])
         return data
 
     def get(self, request, *args, **kwargs):

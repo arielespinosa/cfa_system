@@ -5,5 +5,5 @@ from django.views.generic import TemplateView
 
 
 class IndexView(TemplateView):
-    template_name = 'portal_base_dashboard.html'
+    template_name = 'portal_index.html'
 

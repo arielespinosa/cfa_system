@@ -7,7 +7,7 @@
                         <img alt="image" class="rounded-circle avatar-img" src="{{ user.worker.avatar.url }}"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="block m-t-xs font-bold">{{ user.worker.short_coloquial_name }}</span>
-                            <span class="text-muted text-xs block">{{ user.worker.display_ocupation }}  <b class="caret"></b></span>
+                            <span class="text-muted text-xs block">{{ user.worker.display_ocupation|default_if_none:'' }}  <b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>

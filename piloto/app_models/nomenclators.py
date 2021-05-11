@@ -55,7 +55,7 @@ class CostCenter(models.Model):
 
 class StudyCenter(models.Model):
     name = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    country = models.CharField(max_length=50, default='Cuba')
 
     def __str__(self):
         return self.name
@@ -193,6 +193,3 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
-
-
-

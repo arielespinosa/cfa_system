@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from piloto.app_models.workers import Worker, ExternalPerson
 from piloto.app_forms.utils import work_field_choices, courses_choices
-
+from piloto.app_models.workers import SEX, SCIENTIFIC_GRADE
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -96,6 +96,15 @@ class FormExternalPerson(forms.ModelForm):
             'sex': 'Sexo',
             'scientific_grade': 'Grado Científico'
         }
+
+
+class FormAccount(forms.Form):
+    ci = forms.CharField(max_length=11, label='CI')
+    name = forms.CharField(max_length=50, label='Nombre')
+    lastname1 = forms.CharField(max_length=50, label='Primer apellido')
+    lastname2 = forms.CharField(max_length=50, label='Segundo apellido')
+    sex = forms.CharField(label='Sexo', widget=forms.Select(choices=SEX))
+    scientific_grade = forms.CharField(label='Grado científico', widget=forms.Select(choices=SCIENTIFIC_GRADE))
 
 
 class FormWorker(forms.ModelForm):

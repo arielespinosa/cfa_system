@@ -42,9 +42,9 @@ class FormCourse(FlexibleCrispyForm, forms.ModelForm):
 
 
 class FormCourseEdition(FlexibleCrispyForm, forms.ModelForm):
-    edition = forms.IntegerField(required=False)
-    teacher = forms.ChoiceField(choices=[], label='Profesor')
-    students = forms.MultipleChoiceField(choices=[], label='Estudiantes')
+    edition = forms.IntegerField(required=False, label='Edición')
+    teacher = forms.ChoiceField(choices=[], label='Profesor',  widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Profesor'}))
+    students = forms.ModelMultipleChoiceField(queryset=Worker.objects.all(), label='Estudiantes', widget=forms.SelectMultiple(attrs={'class': 'chosen-select', 'placeholder': 'Estudiantes'}))
 
     class Meta:
         model = CourseEdition
@@ -68,7 +68,7 @@ class FormCourseEdition(FlexibleCrispyForm, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormCourseEdition, self).__init__(*args, **kwargs)
         self.fields['teacher'].choices = all_persons_choices()
-        self.fields['students'].choices = all_persons_choices()
+        #self.fields['students'].choices = all_persons_choices()
 
     def clean(self):
         cleaned_data = super().clean()
@@ -88,8 +88,8 @@ class FormOponencys(forms.Form):
 
 
 class FormOponency(FlexibleCrispyForm, forms.ModelForm):
-    opponents = forms.MultipleChoiceField(choices=[], label='Oponentes', required=False)
-    element = forms.ChoiceField(choices=[], label='Elemento')
+    opponents = forms.MultipleChoiceField(choices=[], label='Oponentes', widget=forms.SelectMultiple(attrs={'class': 'chosen-select', 'placeholder': 'Oponentes'}), required=False)
+    element = forms.ChoiceField(choices=[], label='Elemento',  widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Elemento'}))
 
     class Meta:
         model = Oponency
@@ -107,7 +107,7 @@ class FormOponency(FlexibleCrispyForm, forms.ModelForm):
         print(self.fields.keys())
         return False
 
-    def __init__(self, request=None,*args, **kwargs):
+    def __init__(self, request=None, *args, **kwargs):
         super(FormOponency, self).__init__(*args, **kwargs)
         self.fields['opponents'].choices = all_persons_choices(request.user.worker)
         self.fields['element'].choices = scientific_elements_choices()
@@ -121,7 +121,8 @@ class FormTribunals(forms.Form):
 
 
 class FormTribunal(FlexibleCrispyForm, forms.ModelForm):
-    members = forms.MultipleChoiceField(choices=[], label='Miembros', required=False , help_text='Los miembros seleccionados no tendrán la necesidad de añadirlo en sus curriculums.')
+    thesis = forms.ModelChoiceField(queryset=Thesis.objects.all(), label='Tesis', widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Tesis'}))
+    members = forms.MultipleChoiceField(choices=[], label='Miembros', widget=forms.SelectMultiple(attrs={'class': 'chosen-select', 'placeholder': 'Miembros'}), required=False , help_text='Los miembros seleccionados no tendrán la necesidad de añadirlo en sus curriculums.')
 
     class Meta:
         model = Tribunal

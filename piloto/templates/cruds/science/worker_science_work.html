@@ -42,8 +42,6 @@
 {% endblock %}
 
 {% block page_content %}
-
-
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
       <div class="col-lg-12">
@@ -142,66 +140,7 @@
       </div>
   </div>
 </div>
+
 {% endblock %}
 
-{% block js_scripts %}
 
-<script type="text/javascript">
-
-  $(document).ready(function() {
-
-    // Nomencladores -------------------------------------
-
-    // Create --------------------------------------------
-    $(".create_event").modalForm({
-      formURL: "{% url 'piloto:create_event' %}",
-    });
-
-    $(".create_certification").modalForm({
-      formURL: "{% url 'piloto:create_certification' %}",
-    });
-
-    $(".create_prize").modalForm({
-      formURL: "{% url 'piloto:create_prize' %}",
-    });
-
-    $(".create_entity").modalForm({
-      formURL: "{% url 'piloto:create_entity' %}",
-    });
-
-    $(".create_study_center").modalForm({
-      formURL: "{% url 'piloto:create_study_center' %}",
-    });
-
-    $(".create_program").modalForm({
-      formURL: "{% url 'piloto:create_program' %}",
-    });
-
-    $(".create_client").modalForm({
-      formURL: "{% url 'piloto:create_client' %}",
-    });
-
-    $(".create_cost_center").modalForm({
-      formURL: "{% url 'piloto:create_cost_center' %}",
-    });
-
-    $(".create_knowledge_field").modalForm({
-      formURL: "{% url 'piloto:create_knowledge_field' %}",
-    });
-
-    $(".create_ponency").modalForm({
-      formURL: "{% url 'piloto:create_ponency' %}",
-    });
-
-    $(".create_field").modalForm({
-      formURL: "{% url 'piloto:create_field' %}",
-    });
-
-    $(".create_occupation").modalForm({
-      formURL: "{% url 'piloto:create_occupation' %}",
-    });
-
-  });
-
-</script>
-{% endblock %}

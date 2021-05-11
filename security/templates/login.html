@@ -48,9 +48,11 @@
                             <input type="password" class="form-control" placeholder="Contraseña" required="true" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b">Iniciar sesión</button>
-
                         <a href="#">
                             <small>¿Ha olvidado su contraseña?</small>
+                        </a>
+                        <a href="{% url 'security:create_account' %}">
+                            <small style="float: right;">Registrarme</small>
                         </a>
                     </form>
                 </div>

@@ -1,0 +1,40 @@
+{% extends 'base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block css_library %}
+  <link href="{% static 'css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/plugins/daterangepicker/daterangepicker-bs3.css' %}" rel="stylesheet">
+  <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}CFAdmin | Seguridad{% endblock %}
+
+{% block aside_navbar %}
+
+{% endblock %}
+
+{% block navbar %}
+  {% include 'security_navbar.html' %}
+{% endblock %}
+
+{% block tools_menu %}
+
+{% endblock %}
+
+{% block js_library %}
+    <script src="{% static 'js/plugins/daterangepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+
+{% endblock %}
+
+{% block js_scripts %}
+<script>
+
+    $(document).ready(function(){
+
+        $('.chosen-select').chosen({width: "100%"});
+
+    });
+</script>
+{% endblock %}

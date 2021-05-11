@@ -8,7 +8,7 @@
     <h5 class="modal-title font-bold" id="myModalLabel">A&Ntilde;ADIR PONENCIA</h5>
   </div>
   <div class="modal-body">
-    <div class="form-group pull-in clearfix">
+    <div class="form-group row">
       <div class="col-sm-12">
            {{form|crispy}}
       </div>
@@ -19,3 +19,9 @@
     <button type="submit" class="btn btn-primary">A&ntilde;adir</button>
   </div>
 </form>
+
+<script>
+  $(document).ready(function(){
+     $('.chosen-select').chosen({width: "100%"});
+  });
+</script>

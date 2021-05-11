@@ -54,48 +54,75 @@ class FormPrize(BSModalForm):
     class Meta:
         model = Prize
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+            'level': _('Nivel'),
+        }
 
 
 class FormEntity(BSModalForm):
     class Meta:
         model = Entity
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+            'country': _('País'),
+        }
 
 
 class FormProgram(BSModalForm):
     class Meta:
         model = Program
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormClient(BSModalForm):
     class Meta:
         model = Client
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormCostCenter(BSModalForm):
     class Meta:
         model = CostCenter
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormStudyCenter(BSModalForm):
     class Meta:
         model = StudyCenter
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+            'country': _('País'),
+        }
 
 
 class FormKnowledgeField(BSModalForm):
     class Meta:
         model = KnowledgeField
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormField(BSModalForm):
     class Meta:
         model = Field
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormWorkField(BSModalForm):
@@ -108,29 +135,43 @@ class FormOccupation(BSModalForm):
     class Meta:
         model = Occupation
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+            'older_group': _('Grupo antiguo'),
+            'current_group': _('Grupo actual'),
+            'older_salary': _('Salario antiguo'),
+            'current_salary': _('Salario actual'),
+        }
 
 
 class FormOffice(BSModalForm):
     class Meta:
         model = Office
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormPeopleOrganism(BSModalForm):
     class Meta:
         model = PeopleOrganism
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormPoliticOrganism(BSModalForm):
     class Meta:
         model = PoliticOrganism
         fields = '__all__'
+        labels = {
+            'name': _('Nombre'),
+        }
 
 
 class FormTask(BSModalForm):
     class Meta:
         model = Task
         fields = '__all__'
-
-

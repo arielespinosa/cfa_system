@@ -3,13 +3,13 @@ from django.contrib.auth import views as auth_views
 from .app_views import views
 from django.conf import settings
 from django.conf.urls.static import static
-import notifications.urls
+#import notifications.urls
 
 app_name = 'security'
 
 urlpatterns = [
-    path('', views.Login.as_view(), name='login'),
-    path('registro/', views.CreateAccount.as_view(), name='create_account'),
+    path('login/', views.Login.as_view(), name='login'),
+    path('account/create/', views.CreateAccount.as_view(), name='create_account'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='password_reset.html'), name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),

@@ -3,40 +3,83 @@
 {% load staticfiles %}
 
 
-{% block content_wrapper %}
-<div class="m-b-md">
-    <h3 class="m-b-none">Certificaci&oacute;n</h3>
-    <small>Agregue una curso a su CV</small>
-</div>
-
-<div class="row">
-    <div class="col-lg-12 col-sm-12">
-      <form method="post" data-validate="parsley" action="{% url 'piloto:create_worker_certification' %}">
-        {% csrf_token %}
-        <section class="panel panel-default">
-          <header class="panel-heading">
-            <span class="h4">Certificaci&oacute;n</span>
-          </header>
-          <div class="panel-body">
-            <div class="form-group pull-in clearfix">
-              <div class="col-lg-2">
-                {{form.date|as_crispy_field}}
-              </div>
-               <div class="col-lg-10">
-                {{form.certification|as_crispy_field}}
-              </div>
-            </div>
-          </div>
-          <footer class="panel-footer text-right bg-light lter">
-            <button type="submit" class="btn btn-success btn-s-xs">Aceptar</button>
-          </footer>
-        </section>
-      </form>
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Trabajo científico</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:index' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:docent_work' %}">Trabajo docente</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Crear Certificación</strong>
+                </li>
+            </ol>
+        </div>
     </div>
-</div>
+{% endblock %}
+
+
+{% block page_content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="ibox">
+                  <div class="ibox-title">
+                      <h5>Datos de la nueva certificación</h5>
+                  </div>
+                  <div class="ibox-content">
+                      <form role="form" method="post">
+                          {% csrf_token %}
+                          <div class="form-group row">
+                              <div class="col-lg-2">
+                                <label class="font-normal">Fecha*</label>
+
+                                <div class="form-group" id="date">
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="date" value="03/04/2014">
+                                    </div>
+                                </div>
+                              </div>
+                               <div class="col-lg-10">
+                                {{form.certification|as_crispy_field}}
+                              </div>
+                          </div>
+                          <div class="hr-line-dashed"></div>
+                          <div class="form-group row">
+                              <div class="col-sm-4 col-sm-offset-2">
+                                  <button class="btn btn-white btn-sm" type="button">Cancelar</button>
+                                  <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
 {% endblock %}
 
 {% block content_footer %}
 
 {% endblock %}
 
+{% block js_scripts %}
+    <script>
+        $(document).ready(function(){
+          $('.chosen-select').chosen({width: "100%"});
+
+          var mem = $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+          });
+
+        });
+    </script>
+{% endblock %}

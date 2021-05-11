@@ -18,6 +18,39 @@
   {% include 'piloto_navbar.html' %}
 {% endblock %}
 
+{% block tools_menu %}
+<div class="wrapper wrapper-content">
+    <div class="row border-bottom white-bg">
+        <div class="col-sm-12">
+             <div>
+                <div class="float-left tooltip-demo tools_menu">
+                    <a href="#l" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reply"><i class="fa fa-reply"></i> Reply</a>
+                    <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Imprimir"><i class="fa fa-print"></i> </a>
+                    <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash-o"></i> </a>
+                    <a data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle" aria-expanded="false"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item create_event">Evento</a></li>
+                        <li><a class="dropdown-item create_ponency">Ponencia</a></li>
+                        <li><a class="dropdown-item create_certification">Certificación</a></li>
+                        <li><a class="dropdown-item create_prize">Premio</a></li>
+                        <li><a class="dropdown-item create_entity">Entidad</a></li>
+                        <li><a class="dropdown-item create_study_center">Centro de estudios</a></li>
+                        <li><a class="dropdown-item create_program">Programa</a></li>
+                        <li><a class="dropdown-item create_client">Cliente</a></li>
+                        <li><a class="dropdown-item create_cost_center">Centro de costo</a></li>
+                        <li><a class="dropdown-item create_field">Campo</a></li>
+                        <li><a class="dropdown-item create_office">Oficina</a></li>
+                        <li><a class="dropdown-item create_people_organism">Organismo de masas</a></li>
+                        <li><a class="dropdown-item create_politic_organism">Organismo político</a></li>
+                        <li><a class="dropdown-item create_external_person">Persona externa</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block js_library %}
     <script src="{% static 'js/apps/piloto/docent_work_tables.js' %}"></script>
     <script src="{% static 'js/apps/piloto/science_work_tables.js' %}"></script>
@@ -25,4 +58,84 @@
     <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
     <script src="{% static 'js/plugins/daterangepicker/daterangepicker.js' %}"></script>
     <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+
+{% endblock %}
+
+{% block js_scripts %}
+    <script>
+
+        $(document).ready(function(){
+
+            $('.chosen-select').chosen({width: "100%"});
+
+            // Nomencladores -------------------------------------
+
+            // Create --------------------------------------------
+            $(".create_event").modalForm({
+              formURL: "{% url 'piloto:create_event' %}",
+            });
+
+            $(".create_certification").modalForm({
+              formURL: "{% url 'piloto:create_certification' %}",
+            });
+
+            $(".create_prize").modalForm({
+              formURL: "{% url 'piloto:create_prize' %}",
+            });
+
+            $(".create_entity").modalForm({
+              formURL: "{% url 'piloto:create_entity' %}",
+            });
+
+            $(".create_study_center").modalForm({
+              formURL: "{% url 'piloto:create_study_center' %}",
+            });
+
+            $(".create_program").modalForm({
+              formURL: "{% url 'piloto:create_program' %}",
+            });
+
+            $(".create_client").modalForm({
+              formURL: "{% url 'piloto:create_client' %}",
+            });
+
+            $(".create_cost_center").modalForm({
+              formURL: "{% url 'piloto:create_cost_center' %}",
+            });
+
+            $(".create_knowledge_field").modalForm({
+              formURL: "{% url 'piloto:create_knowledge_field' %}",
+            });
+
+            $(".create_ponency").modalForm({
+              formURL: "{% url 'piloto:create_ponency' %}",
+            });
+
+            $(".create_field").modalForm({
+              formURL: "{% url 'piloto:create_field' %}",
+            });
+
+            $(".create_occupation").modalForm({
+              formURL: "{% url 'piloto:create_occupation' %}",
+            });
+
+            $(".create_office").modalForm({
+              formURL: "{% url 'piloto:create_office' %}",
+            });
+
+            $(".create_people_organism").modalForm({
+              formURL: "{% url 'piloto:create_people_organism' %}",
+            });
+
+            $(".create_politic_organism").modalForm({
+              formURL: "{% url 'piloto:create_politic_organism' %}",
+            });
+
+            $(".create_external_person").modalForm({
+              formURL: "{% url 'piloto:create_external_person' %}",
+            });
+
+
+        });
+    </script>
 {% endblock %}

@@ -102,6 +102,313 @@ var TableDocentWork = function () {
         });
     }
 
+    var initTableCertification = function () {
+
+        $('#tbl_certification tfoot th').each( function () {
+            var title = $(this).text();
+
+            if(title.length > 0){
+                $(this).html( '<input type="text" class="form-control" placeholder="'+title+'" />' );
+            }
+        } );
+
+        var table = $('#tbl_certification');
+
+        // begin first table
+        table.DataTable({
+             pageLength: 15,
+                "lengthMenu": [
+                    [5, 15, 20, -1],
+                    [5, 15, 20, "Todos"]
+                ],
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                ajax: '/piloto/worker_certifications/',
+                "columnDefs": [
+                    {
+                        'orderable': false,
+                        'targets': [0]
+                    },
+                ],
+                language: {
+                    aria: {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    },
+                    "emptyTable": "No hay datos en la tabla",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    "infoEmpty": "No se encontraron registros",
+                    "infoFiltered": "(filtered1 from _MAX_ total records)",
+                    "lengthMenu": "Mostrar _MENU_",
+                    "search": "Buscar:",
+                    "zeroRecords": "No se encontraron resultados",
+                    "paginate": {
+                        "previous":"Anterior",
+                        "next": "Próximo",
+                        "last": "Último",
+                        "first": "Primero"
+                    }
+                },
+
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ],
+
+            initComplete: function () {
+            // Apply the search
+                this.api().columns().every( function () {
+                    var that = this;
+
+                    $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                .search( this.value )
+                                .draw();
+                        }
+                    } );
+                } );
+            }
+        });
+
+        var tableWrapper = jQuery('#tbl_certification_wrapper');
+
+        table.find('.group-checkable').change(function () {
+            var set = jQuery(this).attr("data-set");
+            var checked = jQuery(this).is(":checked");
+            jQuery(set).each(function () {
+                if (checked) {
+                    $(this).prop("checked", true);
+                    $(this).parents('tr').addClass("active");
+                } else {
+                    $(this).prop("checked", false);
+                    $(this).parents('tr').removeClass("active");
+                }
+            });
+        });
+
+        table.on('change', 'tbody tr .checkboxes', function () {
+            $(this).parents('tr').toggleClass("active");
+        });
+    }
+
+    var initTableOponency = function () {
+
+        $('#tbl_oponency tfoot th').each( function () {
+            var title = $(this).text();
+
+            if(title.length > 0){
+                $(this).html( '<input type="text" class="form-control" placeholder="'+title+'" />' );
+            }
+        } );
+
+        var table = $('#tbl_oponency');
+
+        // begin first table
+        table.DataTable({
+             pageLength: 15,
+                "lengthMenu": [
+                    [5, 15, 20, -1],
+                    [5, 15, 20, "Todos"]
+                ],
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                ajax: '/piloto/oponencys/',
+                "columnDefs": [
+                    {
+                        'orderable': false,
+                        'targets': [0]
+                    },
+                ],
+                language: {
+                    aria: {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    },
+                    "emptyTable": "No hay datos en la tabla",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    "infoEmpty": "No se encontraron registros",
+                    "infoFiltered": "(filtered1 from _MAX_ total records)",
+                    "lengthMenu": "Mostrar _MENU_",
+                    "search": "Buscar:",
+                    "zeroRecords": "No se encontraron resultados",
+                    "paginate": {
+                        "previous":"Anterior",
+                        "next": "Próximo",
+                        "last": "Último",
+                        "first": "Primero"
+                    }
+                },
+
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ],
+
+            initComplete: function () {
+            // Apply the search
+                this.api().columns().every( function () {
+                    var that = this;
+
+                    $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                .search( this.value )
+                                .draw();
+                        }
+                    } );
+                } );
+            }
+        });
+
+        var tableWrapper = jQuery('#tbl_oponency_wrapper');
+
+        table.find('.group-checkable').change(function () {
+            var set = jQuery(this).attr("data-set");
+            var checked = jQuery(this).is(":checked");
+            jQuery(set).each(function () {
+                if (checked) {
+                    $(this).prop("checked", true);
+                    $(this).parents('tr').addClass("active");
+                } else {
+                    $(this).prop("checked", false);
+                    $(this).parents('tr').removeClass("active");
+                }
+            });
+        });
+
+        table.on('change', 'tbody tr .checkboxes', function () {
+            $(this).parents('tr').toggleClass("active");
+        });
+    }
+
+    var initTableTribunal = function () {
+
+        $('#tbl_tribunal tfoot th').each( function () {
+            var title = $(this).text();
+
+            if(title.length > 0){
+                $(this).html( '<input type="text" class="form-control" placeholder="'+title+'" />' );
+            }
+        } );
+
+        var table = $('#tbl_tribunal');
+
+        // begin first table
+        table.DataTable({
+             pageLength: 15,
+                "lengthMenu": [
+                    [5, 15, 20, -1],
+                    [5, 15, 20, "Todos"]
+                ],
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                ajax: '/piloto/tribunals/',
+                "columnDefs": [
+                    {
+                        'orderable': false,
+                        'targets': [0]
+                    },
+                ],
+                language: {
+                    aria: {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    },
+                    "emptyTable": "No hay datos en la tabla",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    "infoEmpty": "No se encontraron registros",
+                    "infoFiltered": "(filtered1 from _MAX_ total records)",
+                    "lengthMenu": "Mostrar _MENU_",
+                    "search": "Buscar:",
+                    "zeroRecords": "No se encontraron resultados",
+                    "paginate": {
+                        "previous":"Anterior",
+                        "next": "Próximo",
+                        "last": "Último",
+                        "first": "Primero"
+                    }
+                },
+
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ],
+
+            initComplete: function () {
+            // Apply the search
+                this.api().columns().every( function () {
+                    var that = this;
+
+                    $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                .search( this.value )
+                                .draw();
+                        }
+                    } );
+                } );
+            }
+        });
+
+        var tableWrapper = jQuery('#tbl_tribunal_wrapper');
+
+        table.find('.group-checkable').change(function () {
+            var set = jQuery(this).attr("data-set");
+            var checked = jQuery(this).is(":checked");
+            jQuery(set).each(function () {
+                if (checked) {
+                    $(this).prop("checked", true);
+                    $(this).parents('tr').addClass("active");
+                } else {
+                    $(this).prop("checked", false);
+                    $(this).parents('tr').removeClass("active");
+                }
+            });
+        });
+
+        table.on('change', 'tbody tr .checkboxes', function () {
+            $(this).parents('tr').toggleClass("active");
+        });
+    }
+
+
 
     return {
 
@@ -111,6 +418,9 @@ var TableDocentWork = function () {
             }
 
             initTableCourses();
+            initTableCertification();
+            initTableOponency();
+            initTableTribunal();
 
         }
 

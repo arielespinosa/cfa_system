@@ -25,7 +25,7 @@ SECRET_KEY = 'nv^hf1=v@!owyly$kfno0j=tt!050&@=@&0ym7d$4&-@7-a6p%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '10.0.10.86']
 
 
 # Application definition
@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'cfa_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -92,8 +93,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -138,9 +144,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Security
-LOGIN_URL = ''
+LOGIN_URL = '/security/login'
 LOGIN_REDIRECT_URL = '/dashboard'
-LOGOUT_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = LOGIN_URL
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Media files (Video, Docs, Images)

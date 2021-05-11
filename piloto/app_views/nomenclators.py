@@ -1,16 +1,16 @@
 from django.forms.models import model_to_dict
 from django.http import  JsonResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView
+from django.views import generic
 from bootstrap_modal_forms.generic import (BSModalLoginView,
                                            BSModalCreateView,
                                            BSModalUpdateView,
                                            BSModalReadView,
                                            BSModalDeleteView)
 from cfa_system.mixins.mixins_views import SingleCreateObjectMixin
-from piloto.app_models.workers import Worker, ExternalPerson
 from piloto.app_models.nomenclators import *
 from piloto.app_forms import nomenclators as forms
+from piloto.app_forms import inventory as frm_inventory
 
 
 class CreateCertificationView(SingleCreateObjectMixin, BSModalCreateView):
@@ -31,84 +31,84 @@ class CreateEntity(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_entity.html'
     form_class = forms.FormEntity
     success_message = 'La entidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateStudyCenter(SingleCreateObjectMixin, BSModalCreateView):
     form_class = forms.FormStudyCenter
     template_name = 'cruds/nomenclators/create_study_center.html'
     success_message = 'El centro se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateProgram(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_program.html'
     form_class = forms.FormProgram
     success_message = 'El programa se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateClient(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_client.html'
     form_class = forms.FormClient
     success_message = 'El Cliente se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateCostCenter(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_cost_center.html'
     form_class = forms.FormCostCenter
     success_message = 'El Centro de Costo se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateKnowledgeField(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_knowledge_field.html'
     form_class = forms.FormKnowledgeField
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateField(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_field.html'
     form_class = forms.FormField
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateOccupation(BSModalCreateView):
     template_name = 'cruds/nomenclators/create_occupation.html'
     form_class = forms.FormOccupation
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateOffice(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_office.html'
     form_class = forms.FormOffice
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreatePeopleOrganism(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_people_organism.html'
     form_class = forms.FormPeopleOrganism
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreatePoliticOrganism(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_politic_organism.html'
     form_class = forms.FormPoliticOrganism
     success_message = 'La Especialidad se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateTask(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/nomenclators/create_task.html'
     form_class = forms.FormTask
     success_message = 'La tarea se creo satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class CreateEvent(SingleCreateObjectMixin, BSModalCreateView):
@@ -116,7 +116,6 @@ class CreateEvent(SingleCreateObjectMixin, BSModalCreateView):
     form_class = forms.FormEvent
     success_message = 'La tarea se creo satisfactoriamente.'
     success_url = reverse_lazy('piloto:science_work')
-
 
 
 """
@@ -129,7 +128,7 @@ class DeleteCertification(BSModalAjaxFormMixin, BSModalDeleteView):
     model = Certification
     template_name = 'eliminar_elemento.html'
     success_message = 'La certification fue eliminada de su CV satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class ListaCertificationes(ListView):
@@ -156,7 +155,7 @@ class DeleteCentroEstudios(BSModalAjaxFormMixin, BSModalDeleteView):
     model = CentroEstudios
     template_name = 'Delete_elemento.html'
     success_message = 'El centro fue eliminado satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
 
 class ListaCentrosEstudios(ListView):
@@ -176,7 +175,7 @@ class CreateContact(BSModalCreateView):
     template_name = 'crud/create_contact.html'
     form_class = frm_piloto.FormCreateContact
     success_message = 'El contacto se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
     def get_context_data(self, **kwargs):
         context = super(CreateContact, self).get_context_data(**kwargs)
@@ -211,7 +210,7 @@ class CreateAreaInteres(BSModalCreateView):
     template_name = 'crud/Create_area_de_interes.html'
     form_class = frm_piloto.FormCreateAreaInteres
     success_message = 'El area de interes se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
     def get_context_data(self, **kwargs):
         context = super(CreateAreaInteres, self).get_context_data(**kwargs)
@@ -246,7 +245,7 @@ class CreateMunicipio(BSModalCreateView):
     template_name = 'crud/Create_municipio.html'
     form_class = frm_piloto.FormCreateMunicipio
     success_message = 'El municipio se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
     def get_context_data(self, **kwargs):
         context = super(CreateMunicipio, self).get_context_data(**kwargs)

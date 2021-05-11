@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 from .app_views import views
 from django.conf import settings
 from django.conf.urls.static import static
-import notifications.urls
+#import notifications.urls
 
 app_name = 'dashboard'
 

@@ -9,16 +9,48 @@ from .nomenclators import (
     Contact, WorkField, Occupation, Office, PeopleOrganism, PoliticOrganism, Municipality, KnowledgeField
 )
 
+SEX = (
+    ('F', 'Femenino'),
+    ('M', 'Masculino'),)
+
+SCIENTIFIC_GRADE = (
+    ('MSc', 'Master'),
+    ('Dr', 'Doctor(a)'),)
+
+WORK_CATEGORY = (
+    ('T', 'Técnico'),
+    ('E', 'Especialista'),)
+
+WORK_STATUS = (
+    ('AP', 'A prueba'),
+    ('F', 'Fijo'),)
+
+SKIN_COLOR = (
+    ('B', 'Blanca'),
+    ('M', 'Mestiza'),
+    ('N', 'Negra'),)
+
+SCHOLAR_LVL = (
+    ('M', 'Medio'),
+    ('S', 'Superior'),)
+
+SCIENTIFIC_CATEGORY = (
+    ('AI', 'Aspirante a Investigador'),
+    ('IA', 'Investigador Agregado'),
+    ('IT', 'Investigador Titular'),)
+
+DOCENT_CATEGORY = (
+    ('PI', 'Profesor Instructor'),
+    ('PS', 'Profesor Asistente'),
+    ('PX', 'Profesor Auxiliar'),
+    ('PA', 'Profesor Agregado'),
+    ('PT', 'Profesor Titular'),
+)
+
 
 class Person(models.Model):
-    SEX = (
-        ('F', 'Femenino'),
-        ('M', 'Masculino'),)
-
-    SCIENTIFIC_GRADE = (
-        ('MSc', 'Master'),
-        ('Dr', 'Doctor(a)'),)
-
+    avatar = models.ImageField(upload_to='user_avatar/', default='user_avatar/default.jpg', null=True)
+    ci = models.CharField(max_length=11, unique=True, default='22222222222')
     name = models.CharField(max_length=50)
     lastname1 = models.CharField(max_length=50)
     lastname2 = models.CharField(max_length=50)
@@ -52,50 +84,17 @@ class ExternalPerson(Person):
 
 
 class Worker(Person):
-    WORK_CATEGORY = (
-        ('T', 'Técnico'),
-        ('E', 'Especialista'),
-    )
-
-    WORK_STATUS = (
-        ('AP', 'A prueba'),
-        ('F', 'Fijo'),)
-
-    SKIN_COLOR = (
-        ('B', 'Blanca'),
-        ('M', 'Mestiza'),
-        ('N', 'Negra'),)
-
-    SCHOLAR_LVL = (
-        ('M', 'Medio'),
-        ('S', 'Superior'),)
-
-    SCIENTIFIC_CATEGORY = (
-        ('AI', 'Aspirante a Investigador'),
-        ('IA', 'Investigador Agregado'),
-        ('IT', 'Investigador Titular'),)
-
-    DOCENT_CATEGORY = (
-        ('PI', 'Profesor Instructor'),
-        ('PS', 'Profesor Asistente'),
-        ('PX', 'Profesor Auxiliar'),
-        ('PA', 'Profesor Agregado'),
-        ('PT', 'Profesor Titular'),
-    )
-
     app_user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='fotos_de_perfiles/', default='avatar_default.jpg', null=True)
-    ci = models.CharField(max_length=11)
-    skin_color = models.CharField(max_length=20, choices=SKIN_COLOR)
-    scholar_lvl = models.CharField(max_length=50, choices=SCHOLAR_LVL)
+    skin_color = models.CharField(max_length=20, choices=SKIN_COLOR, blank=True, null=True)
+    scholar_lvl = models.CharField(max_length=50, choices=SCHOLAR_LVL, blank=True, null=True)
     work_field = models.ForeignKey(WorkField, on_delete=models.DO_NOTHING, blank=True, null=True)
     scientific_category = models.CharField(max_length=50, choices=SCIENTIFIC_CATEGORY, null=True, blank=True)
     docent_category = models.CharField(max_length=50, choices=DOCENT_CATEGORY, null=True, blank=True)
-    card = models.IntegerField(unique=True)
+    card = models.IntegerField(unique=True, blank=True, null=True)
     ocupation = models.ForeignKey(Occupation, on_delete=models.DO_NOTHING, blank=True, null=True)
     office = models.ForeignKey(Office, on_delete=models.DO_NOTHING, blank=True, null=True)
-    work_category = models.CharField(max_length=20, choices=WORK_CATEGORY)
-    in_insmet_date = models.DateField(default=django.utils.timezone.now)
+    work_category = models.CharField(max_length=20, choices=WORK_CATEGORY, blank=True, null=True)
+    in_insmet_date = models.DateField(default=django.utils.timezone.now, blank=True, null=True)
     out_insmet_date = models.DateField(null=True, blank=True)
     out_motivations = models.TextField(max_length=1000, blank=True, null=True)
     res_34_19 = models.FloatField(blank=True, null=True)
@@ -120,6 +119,7 @@ class Worker(Person):
         else:
             return self.name + ' ' + self.lastname1 + ' ' + self.lastname2
 
+    @property
     def short_coloquial_name(self):
         if self.scientific_grade:
             return self.scientific_grade + '. ' + self.name + ' ' + self.lastname1
@@ -145,6 +145,9 @@ class Worker(Person):
         return 7
 
     def display_ocupation(self):
+        if not self.ocupation:
+            return None
+
         ocupation = self.ocupation.name
         pref = ocupation.split(' ')[0][:3] + '.'
         field = ocupation.split(' ')[-1]

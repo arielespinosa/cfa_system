@@ -1,4 +1,5 @@
 from datetime import date
+from django.core.handlers.wsgi import WSGIRequest
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from bootstrap_modal_forms.forms import BSModalForm
@@ -7,7 +8,9 @@ from piloto.app_models.workers import Worker
 from piloto.app_models.science import (
     Ponency, PonencyRealized, Comision, Thesis, Project, Article, Service, Book, Result, SciencePrize
 )
-from piloto.app_models.nomenclators import Event
+from piloto.app_models.nomenclators import (
+    Event, Client, Entity,
+    CostCenter)
 
 from .utils import all_persons_choices, work_field_choices, scientific_elements_choices
 
@@ -42,7 +45,11 @@ class FormResults(BSModalForm):
 
 # Forms  -----------------------------
 class FormPonency(BSModalForm):
-    authors = forms.MultipleChoiceField(choices=[], required=False, label='Autores')
+    authors = forms.MultipleChoiceField(
+        choices=[],
+        required=False,
+        label='Autores',
+        widget=forms.SelectMultiple(attrs={'class': 'chosen-select', 'placeholder': 'Autores...'}))
 
     class Meta:
         model = Ponency
@@ -280,9 +287,22 @@ class FormResult(FlexibleCrispyForm, forms.ModelForm):
         self.fields['integrants'].choices = all_persons_choices(request.user.worker)
 
 
-class FormService(FlexibleCrispyForm, BSModalForm):
-    responsible = forms.ChoiceField(choices=[], label='Responsable')
-    participants = forms.MultipleChoiceField(choices=[], required=False, label='Participantes')
+class FormService(FlexibleCrispyForm, forms.ModelForm):
+    client = forms.ModelChoiceField(queryset=Client.objects.all(), label='Cliente',
+                                    widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Cliente'})
+                                    )
+    cost_center = forms.ModelChoiceField(queryset=CostCenter.objects.all(), label='Centro de costo',
+                                         widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Centro de costo'})
+                                         )
+    entity = forms.ModelChoiceField(queryset=Entity.objects.all(), label='Entidad',
+                                    widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Entidad'})
+                                    )
+    responsible = forms.ChoiceField(choices=[], label='Responsable'
+                                    """widget=forms.Select(attrs={'class': 'chosen-select', 'placeholder': 'Responsable'})"""
+                                    )
+    participants = forms.MultipleChoiceField(choices=[], required=False, label='Participantes'
+                                             """widget=forms.SelectMultiple(attrs={'class': 'chosen-select', 'placeholder': 'Participantes'})"""
+                                             )
     
     class Meta:
         model = Service
@@ -291,7 +311,7 @@ class FormService(FlexibleCrispyForm, BSModalForm):
             'start_date': _('Fecha de inicio'),
             'end_date': _('Fecha de terminación'),
             'name': _('Nombre'),
-            'type': _('Tipo'),
+            'type_of': _('Tipo'),
             'dim': _('DIM'),
             'cost_center': _('Centro de costo'),
             'participants': _('Participantes'),
@@ -308,9 +328,16 @@ class FormService(FlexibleCrispyForm, BSModalForm):
 
     def __init__(self, request=None, *args, **kwargs):
         super(FormService, self).__init__(*args, **kwargs)
+
+        if request:
+            self.fields['responsible'].choices = all_persons_choices()
+            self.fields['participants'].choices = all_persons_choices(request.user.worker)
+
+    def reload_fields(self, request):
         self.fields['responsible'].choices = all_persons_choices()
         self.fields['participants'].choices = all_persons_choices(request.user.worker)
 
+    """
     def clean_start_date(self):
         start_date = self.cleaned_data['start_date']
 
@@ -330,12 +357,11 @@ class FormService(FlexibleCrispyForm, BSModalForm):
         start_date = cleaned_data.get('start_date')
         end_date = cleaned_data.get('end_date')
         
-        """
         if start_date > end_date:
             raise forms.ValidationError("La fecha de iniicio no pude ser mayor a la fecha de terminación.")
         if end_date < start_date:
             raise forms.ValidationError("La fecha de terminación no pude ser menor a la fecha de inicio.")
-        """
+    """
 
 
 class FormSciencePrize(FlexibleCrispyForm, forms.ModelForm):

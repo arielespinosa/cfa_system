@@ -19,7 +19,7 @@ from piloto.app_forms import docent as forms
 
 # GENERICS VIEWS
 class WorkerDocentWorkView(generic.TemplateView):
-    template_name = 'worker/docent_work.html'
+    template_name = 'worker/docency/docent_work.html'
 
 
 # CREATE VIEWS
@@ -30,11 +30,11 @@ class CreateCourse(SingleCreateObjectMixin, generic.CreateView):
     success_url = reverse_lazy('piloto:create_course_edition')
 
 
-class CreateCourseEdition(SingleCreateObjectMixin, BSModalCreateView):
+class CreateCourseEdition(generic.CreateView):
     template_name = 'cruds/docent/create_course_edition.html'
     form_class = forms.FormCourseEdition
     success_message = 'El curso se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:course_editions')
+    success_url = reverse_lazy('piloto:docent_work')
 
     def post(self, request, *args, **kwargs):
         """
@@ -47,24 +47,26 @@ class CreateCourseEdition(SingleCreateObjectMixin, BSModalCreateView):
                 # data['cursos'].update(model_to_dict(curso))
         """
 
-        form_course_edition = self.get_form(self.form_class)
+        form_course_edition = self.form_class(data=request.POST)
         form_course_edition.request = request
 
         if form_course_edition.is_valid():
             teacher_pk = request.POST.get('teacher')
-
             try:
                 teacher = Worker.objects.get(pk=teacher_pk)
             except ObjectDoesNotExist:
                 teacher = ExternalPerson.objects.get(pk=teacher_pk)
 
             course_edition = form_course_edition.save(commit=False)
-            course_edition.edition = CourseEdition.objects.filter(course__pk=course_edition.course.pk).count() + 1
             course_edition.teacher = teacher
+
+            if course_edition.edition is None:
+                course_edition.edition = CourseEdition.objects.filter(course__pk=course_edition.course.pk).count() + 1
+
             course_edition.save()
             form_course_edition.save_m2m()
 
-            return HttpResponseRedirect(self.success_url)
+            return redirect(self.success_url)
         else:
             return super(CreateCourseEdition, self).post(request, *args, **kwargs)
 
@@ -73,7 +75,7 @@ class CreateTribunal(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/docent/create_tribunal.html'
     form_class = forms.FormTribunal
     success_message = 'El tribunal se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:tribunals')
+    success_url = reverse_lazy('piloto:docent_work')
 
     def post(self, request, *args, **kwargs):
         form_tribunal = self.get_form(self.form_class)
@@ -98,11 +100,16 @@ class CreateTribunal(SingleCreateObjectMixin, BSModalCreateView):
             return super(CreateTribunal, self).post(request, *args, **kwargs)
 
 
-class CreateOponency(SingleCreateObjectMixin, BSModalCreateView):
+class CreateOponency(generic.CreateView):
     template_name = 'cruds/docent/create_oponency.html'
     form_class = forms.FormOponency
     success_message = 'La oponencia se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:oponencys')
+    success_url = reverse_lazy('piloto:docent_work')
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateOponency, self).get_context_data(**kwargs)
+        context['form'] = self.form_class(request=self.request)
+        return context
 
     def post(self, request, *args, **kwargs):
         """
@@ -114,9 +121,8 @@ class CreateOponency(SingleCreateObjectMixin, BSModalCreateView):
                 # data['Oponencys'].update(model_to_dict(Oponency))
         """
       
-        form_oponency = self.get_form(self.form_class)
-        form_oponency.request = request
-  
+        form_oponency = self.form_class(data=request.POST, request=request)
+
         if form_oponency.is_valid():
             element_pk = request.POST.get('element')
 
@@ -150,7 +156,7 @@ class CreateOponency(SingleCreateObjectMixin, BSModalCreateView):
                 oponency.opponents.add(opponent)
             oponency.opponents.add(request.user.worker)
 
-            return HttpResponseRedirect(self.success_url)
+            return redirect(self.success_url)
         else:
             return super(CreateOponency, self).post(request, *args, **kwargs)
 
@@ -159,7 +165,7 @@ class CreateWorkerCertification(SingleCreateObjectMixin, BSModalCreateView):
     template_name = 'cruds/docent/create_worker_certification.html'
     form_class = forms.FormWorkerCertification
     success_message = 'El certificado se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:worker_certifications')
+    success_url = reverse_lazy('piloto:docent_work')
 
     def post(self, request, *args, **kwargs):
         form_certification = self.get_form(self.form_class)
@@ -180,10 +186,6 @@ class ListCourse(generic.ListView):
     template_name = 'cruds/docent/courses.html'
     model = Course
 
-    def get_context_data(self, **kwargs):
-        context = super(ListCourse, self).get_context_data(**kwargs)
-        return context
-
 
 class ListCourseEdition(generic.ListView):
     template_name = 'cruds/docent/courses.html'
@@ -199,7 +201,7 @@ class ListCourseEdition(generic.ListView):
     def tbl_ajax_content(self):
         data = []
 
-        for course in self.request.user.worker.courses.all():
+        for course in self.get_queryset():
             checkbox = """
                  <td>
                    <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
@@ -222,45 +224,101 @@ class ListTribunal(generic.ListView):
     template_name = 'cruds/docent/tribunals.html'
     model = Tribunal
 
-    def get_context_data(self, **kwargs):
-        context = super(ListTribunal, self).get_context_data(**kwargs)
+    def get_queryset(self):
+        if 'worker_pk' in self.kwargs.keys():
+            worker = Worker.objects.get(pk=int(self.kwargs.keys('worker_pk')))
+            return worker.tribunals
+        else:
+            return super(ListTribunal, self).get_queryset()
 
-        tribunals_paginator = Paginator(self.request.user.worker.tribunals.all(), 15)
-        tribunals_page = self.request.GET.get('pag')
-        if tribunals_paginator.count > 0:
-            context['tribunals'] = tribunals_paginator.get_page(tribunals_page)
+    def tbl_ajax_content(self):
+        data = []
 
-        return context
+        for tribunal in self.get_queryset():
+            checkbox = """
+                 <td>
+                   <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
+                       <input type='checkbox' class='checkboxes' value='{}' />
+                       <span></span>
+                   </label>
+                 </td>
+             """.format(tribunal.pk)
+            members = [member.fullname for member in tribunal.members.all()]
+            data.append([checkbox, tribunal.date, tribunal.thesis.title, members, ''])
+        return data
+
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            return JsonResponse({"data": self.tbl_ajax_content()})
+        else:
+            return super(ListTribunal, self).get(request, *args, **kwargs)
 
 
 class ListOponency(generic.ListView):
     template_name = 'cruds/docent/oponencys.html'
     model = Oponency
 
-    def get_context_data(self, **kwargs):
-        context = super(ListOponency, self).get_context_data(**kwargs)
+    def get_queryset(self):
+        if 'worker_pk' in self.kwargs.keys():
+            worker = Worker.objects.get(pk=int(self.kwargs.keys('worker_pk')))
+            return worker.oponencys
+        else:
+            return super(ListOponency, self).get_queryset()
 
-        oponencys_paginator = Paginator(self.request.user.worker.oponencys.all(), 15)
-        oponencys_page = self.request.GET.get('pag')
-        if oponencys_paginator.count > 0:
-            context['oponencys'] = oponencys_paginator.get_page(oponencys_page)
+    def tbl_ajax_content(self):
+        data = []
 
-        return context
+        for oponency in self.get_queryset():
+            checkbox = """
+                 <td>
+                   <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
+                       <input type='checkbox' class='checkboxes' value='{}' />
+                       <span></span>
+                   </label>
+                 </td>
+             """.format(oponency.pk)
+            opponents = [opponent.fullname for opponent in oponency.opponents.all()]
+            data.append([checkbox, oponency.date, oponency.element.title, opponents, ''])
+        return data
+
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            return JsonResponse({"data": self.tbl_ajax_content()})
+        else:
+            return super(ListOponency, self).get(request, *args, **kwargs)
 
 
 class ListWorkerCertification(generic.ListView):
     template_name = 'cruds/docent/certifications.html'
     model = WorkerCertification
 
-    def get_context_data(self, **kwargs):
-        context = super(ListWorkerCertification, self).get_context_data(**kwargs)
+    def get_queryset(self):
+        if 'worker_pk' in self.kwargs.keys():
+            worker = Worker.objects.get(pk=int(self.kwargs.keys('worker_pk')))
+            return worker.certifications
+        else:
+            return super(ListWorkerCertification, self).get_queryset()
 
-        oponencys_paginator = Paginator(self.request.user.worker.certifications.all(), 15)
-        certifications_page = self.request.GET.get('pag')
-        if oponencys_paginator.count > 0:
-            context['certifications'] = oponencys_paginator.get_page(certifications_page)
+    def tbl_ajax_content(self):
+        data = []
 
-        return context
+        for worker_certification in self.get_queryset():
+            checkbox = """
+                 <td>
+                   <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
+                       <input type='checkbox' class='checkboxes' value='{}' />
+                       <span></span>
+                   </label>
+                 </td>
+             """.format(worker_certification.pk)
+            data.append([checkbox, worker_certification.date, worker_certification.certification.name, ''])
+        return data
+
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            return JsonResponse({"data": self.tbl_ajax_content()})
+        else:
+            return super(ListWorkerCertification, self).get(request, *args, **kwargs)
 
 
 # DETAIL VIEWS

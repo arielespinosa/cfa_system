@@ -8,16 +8,36 @@
     <h5 class="modal-title font-bold" id="myModalLabel">A&Ntilde;ADIR CERTIFICACI&Oacute;N</h5>
   </div>
   <div class="modal-body">
-    <div class="form-group pull-in clearfix">
-      <div class="col-sm-4">          
-        Fichero
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <div class="custom-file">
+          <label for="logo" class="custom-file-label">Fichero</label>
+          <input id="logo" type="file" class="custom-file-input">
+        </div>
       </div>
     </div>
-    {{ form|crispy }}
+    <div class="form-group row">
+      <div class="col-sm-12">
+        {{ form|crispy }}
+      </div>
+    </div>
   </div>
-
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
     <button type="submit" class="btn btn-primary">A&ntilde;adir</button>
   </div>      
 </form>
+
+<script>
+  $('.custom-file-input').on('change', function() {
+     let fileName = $(this).val().split('\\').pop();
+     $(this).next('.custom-file-label').addClass("selected").html(fileName);
+  });
+  $(document).ready(function(){
+    $('.custom-file-input').on('change', function() {
+     let fileName = $(this).val().split('\\').pop();
+     $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+     $('.chosen-select').chosen({width: "100%"});
+  });
+</script>

@@ -1,0 +1,173 @@
+{% extends 'piloto_base_dashboard.html' %}
+{% load staticfiles %}
+
+{% block page_heading %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Trabajo docente</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'piloto:index' %}">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Trabajo docente</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm-8">
+            <div class="title-action">
+                <div class="float-right tooltip-demo">
+                    <a href="mail_compose.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reply"><i class="fa fa-reply"></i> Reply</a>
+                    <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Print email"><i class="fa fa-print"></i> </a>
+                    <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </a>
+                    <a data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle" aria-expanded="false"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item create_event">Evento</a></li>
+                        <li><a class="dropdown-item create_ponency">Ponencia</a></li>
+                        <li><a class="dropdown-item create_certification">Certificación</a></li>
+                        <li><a class="dropdown-item create_prize">Premio</a></li>
+                        <li><a class="dropdown-item create_entity">Entidad</a></li>
+                        <li><a class="dropdown-item create_study_center">Centro de estudios</a></li>
+                        <li><a class="dropdown-item create_program">Programa</a></li>
+                        <li><a class="dropdown-item create_client">Cliente</a></li>
+                        <li><a class="dropdown-item create_cost_center">Centro de costo</a></li>
+                        <li><a class="dropdown-item create_field">Campo</a></li>
+                        <li><a class="dropdown-item">Officina</a></li>
+                        <li><a class="dropdown-item">Organismo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="tabs-container">
+              <ul class="nav nav-tabs" role="tablist">
+                  <li><a class="nav-link active" data-toggle="tab" href="#tab-1">Cursos</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-2">Certificaciones</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-3">Oponencias</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-4">Tribunales</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div role="tabpanel" id="tab-1" class="tab-pane active">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_course_edition' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_courses.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-2" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_worker_certification' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_certification.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-3" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_oponency' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_oponency.html' %}
+                      </div>
+                  </div>
+                  <div role="tabpanel" id="tab-4" class="tab-pane">
+                      <div class="panel-body">
+                          <div class="row single-row">
+                                <div class="col-lg-12">
+                                    <div class="btn-group float-right">
+                                        <a href="{% url 'piloto:create_tribunal' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp;&nbsp;Agregar </a>
+                                    </div>
+                                </div>
+                          </div>
+                          {% include 'tables/tbl_tribunal.html' %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+
+    // Nomencladores -------------------------------------
+
+    // Create --------------------------------------------
+    $(".create_event").modalForm({
+      formURL: "{% url 'piloto:create_event' %}",
+    });
+
+    $(".create_certification").modalForm({
+      formURL: "{% url 'piloto:create_certification' %}",
+    });
+
+    $(".create_prize").modalForm({
+      formURL: "{% url 'piloto:create_prize' %}",
+    });
+
+    $(".create_entity").modalForm({
+      formURL: "{% url 'piloto:create_entity' %}",
+    });
+
+    $(".create_study_center").modalForm({
+      formURL: "{% url 'piloto:create_study_center' %}",
+    });
+
+    $(".create_program").modalForm({
+      formURL: "{% url 'piloto:create_program' %}",
+    });
+
+    $(".create_client").modalForm({
+      formURL: "{% url 'piloto:create_client' %}",
+    });
+
+    $(".create_cost_center").modalForm({
+      formURL: "{% url 'piloto:create_cost_center' %}",
+    });
+
+    $(".create_knowledge_field").modalForm({
+      formURL: "{% url 'piloto:create_knowledge_field' %}",
+    });
+
+    $(".create_ponency").modalForm({
+      formURL: "{% url 'piloto:create_ponency' %}",
+    });
+
+    $(".create_field").modalForm({
+      formURL: "{% url 'piloto:create_field' %}",
+    });
+
+    $(".create_occupation").modalForm({
+      formURL: "{% url 'piloto:create_occupation' %}",
+    });
+
+  });
+
+</script>
+{% endblock %}

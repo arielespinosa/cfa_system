@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse
 from django.forms.models import model_to_dict
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 
@@ -14,7 +14,7 @@ from security.app_forms import forms as frm_security
 from piloto.app_models.workers import Worker, ExternalPerson
 from piloto.app_models.science import Thesis
 from piloto.app_models.docent import Course, CourseEdition
-from django_pdfkit import PDFView
+#from django_pdfkit import PDFView
 
 
 class Index(TemplateView):
@@ -33,12 +33,12 @@ class Index(TemplateView):
 
 
 class CreateExternalPerson(BSModalCreateView):
-    template_name = 'cruds/create_external_person.html'
+    template_name = 'cruds/general/create_external_person.html'
     form_class = form.FormExternalPerson
     form_contact = frm_nomenclators.FormContact
     form_user = frm_security.FormUser
     success_message = 'La persona se añadio satisfactoriamente.'
-    success_url = reverse_lazy('piloto:perfil')
+    success_url = reverse_lazy('piloto:index')
 
     def get_context_data(self, **kwargs):
         context = super(CreateExternalPerson, self).get_context_data(**kwargs)
@@ -50,6 +50,8 @@ class CreateExternalPerson(BSModalCreateView):
         form = self.form_class(request.POST)
         form_contact = self.form_contact(request.POST)
         form.request = request
+
+        print("Validas: ", form.is_valid(), form_contact.is_valid())
 
         if form.is_valid() and form_contact.is_valid():
             contact = form_contact.save()
@@ -64,7 +66,7 @@ class CreateExternalPerson(BSModalCreateView):
                 }
                 return JsonResponse(data)
             else:
-                pass
+                return HttpResponseRedirect(self.success_url)
         else:
             return super(CreateExternalPerson, self).post(request, *args, **kwargs)
 

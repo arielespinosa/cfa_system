@@ -224,7 +224,7 @@ class Service(models.Model):
     start_date = models.DateField(default=django.utils.timezone.now())
     end_date = models.DateField()
     name = models.CharField(max_length=50, blank=True, null=True)
-    type = models.CharField(max_length=20, choices=TIPO, blank=True, null=True)
+    type_of = models.CharField(max_length=20, choices=TIPO, blank=True, null=True)
     dim = models.CharField(max_length=50, blank=True, null=True)
     cost_center = models.ForeignKey(CostCenter, on_delete=models.DO_NOTHING)
     participants = GM2MField(Worker, ExternalPerson, related_name='services')

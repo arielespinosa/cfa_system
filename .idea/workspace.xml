@@ -4,8 +4,97 @@
     <list default="true" id="b840252e-81a1-42c0-a6d8-79d10d037238" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfa_system/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfa_system/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cfa_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cfa_system/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/migrations/0002_app_icon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/migrations/0003_auto_20210407_0055.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard_aside_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard_aside_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/user_avatar/default_male.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_forms/docent.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_forms/docent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_forms/nomenclators.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_forms/nomenclators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_forms/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_forms/science.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_models/nomenclators.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_models/nomenclators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_models/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_models/science.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_models/workers.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_models/workers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/docent.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/docent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/nomenclators.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/nomenclators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/science.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/science.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/app_views/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/app_views/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0002_auto_20210104_0125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0003_auto_20210104_0125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0004_auto_20210104_0152.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0005_auto_20210106_1904.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0006_auto_20210110_2327.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0007_auto_20210111_2336.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0008_auto_20210112_0008.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0009_auto_20210112_0202.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0010_auto_20210112_0203.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0011_auto_20210112_0220.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0012_auto_20210112_2024.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0013_auto_20210403_1654.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/migrations/0014_auto_20210407_0055.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_articulo.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_articulo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_certificar_trabajador.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_certificar_trabajador.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_curso_realizado.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_curso_realizado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_evento.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_evento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_grupo_de_trabajo.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_grupo_de_trabajo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_inventario.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_inventario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_libro.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_libro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_literatura_gris.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_literatura_gris.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_oponencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_oponencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_persona_externa.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_persona_externa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_ponencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_ponencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_premio_cientifico.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_premio_cientifico.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_programa.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_programa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_proyecto.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_proyecto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_publicacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_publicacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_resultado.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_resultado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_servicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_servicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_tesis.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_tesis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_tribunal.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_tribunal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/crud/crear_tutoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/crud/crear_tutoria.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/crear_oponencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/crear_oponencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/create_external_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/general/create_external_person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_course_edition.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_course_edition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_oponency.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_oponency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_tribunal.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_tribunal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_worker_certification.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/docent/create_worker_certification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_certification.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_certification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_client.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_cost_center.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_cost_center.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_entity.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_entity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_field.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_field.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_knowledge_field.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_knowledge_field.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_occupation.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_occupation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_study_center.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_study_center.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_work_field.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/nomenclators/create_work_field.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_comision.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_comision.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_ponency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_service.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/create_thesis.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/create_thesis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/cruds/science/worker_science_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/cruds/science/worker_science_work.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_aside_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_base_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_base_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/piloto_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/piloto_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/tables/tbl_oponencys.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/tables/tbl_oponency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/tables/tbl_tribunals.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/tables/tbl_tribunal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/templates/worker/docent_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/templates/worker/docency/docent_work.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piloto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/piloto/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/app_views/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/app_views/portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/app_forms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/security/app_forms/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/app_views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/security/app_views/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/security/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/security/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/general_custom_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general_custom_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/apps/piloto/docent_work_tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/apps/piloto/docent_work_tables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/portal_base_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portal_base_dashboard.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,23 +119,23 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/portal/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/piloto/app_views" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/static/images" />
-      <recent name="$PROJECT_DIR$/dashboard/templates" />
-      <recent name="$PROJECT_DIR$/piloto/templates/cruds/nomenclators" />
-      <recent name="$PROJECT_DIR$/piloto/app_views" />
+      <recent name="$PROJECT_DIR$/piloto/templates/administrative/cruds" />
+      <recent name="$PROJECT_DIR$/piloto/templates/administrative" />
+      <recent name="$PROJECT_DIR$/piloto/templates/cruds/inventary" />
+      <recent name="$PROJECT_DIR$/piloto/templates/worker/docency" />
+      <recent name="$PROJECT_DIR$/piloto/templates/cruds/general" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/portal/views" />
-      <recent name="$PROJECT_DIR$/portal/templates" />
-      <recent name="$PROJECT_DIR$/portal" />
-      <recent name="$PROJECT_DIR$/piloto/templates/worker" />
-      <recent name="$PROJECT_DIR$/piloto/features" />
+      <recent name="$PROJECT_DIR$/piloto/app_views" />
+      <recent name="$PROJECT_DIR$/piloto/templates/administrative" />
+      <recent name="$PROJECT_DIR$/piloto/app_forms" />
+      <recent name="$PROJECT_DIR$/piloto/app_models" />
+      <recent name="$PROJECT_DIR$/security/templates" />
     </key>
   </component>
   <component name="RunDashboard">

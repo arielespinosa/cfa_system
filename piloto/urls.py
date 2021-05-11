@@ -3,7 +3,9 @@ from .app_views import worker as view_worker
 from .app_views import nomenclators as view_nomenclators
 from .app_views import science as view_science
 from .app_views import docent as view_docent
-from django_pdfkit import PDFView
+from .app_views import inventory as view_inventory
+from .app_views import administration as view_administration
+#from django_pdfkit import PDFView
 
 
 app_name = 'piloto'
@@ -28,12 +30,19 @@ urlpatterns = [
     path('occupation/create', view_nomenclators.CreateOccupation.as_view(), name='create_occupation'),
     path('office/create', view_nomenclators.CreateOffice.as_view(), name='create_office'),
     path('people_organism/create', view_nomenclators.CreatePeopleOrganism.as_view(), name='create_people_organism'),
-    path('politic_organism/create', view_nomenclators.CreatePeopleOrganism.as_view(), name='create_politic_organism'),
+    path('politic_organism/create', view_nomenclators.CreatePoliticOrganism.as_view(), name='create_politic_organism'),
     path('task/create', view_nomenclators.CreateTask.as_view(), name='create_task'),
+
+    # ADMINISTRATIVE WORK
+    path('administration', view_administration.AdministrativeWorkView.as_view(), name='administration'),
+
+    # Inventory
+    path('inventory/create', view_inventory.CreateInventory.as_view(), name='create_inventory'),
 
     # SCIENCE
     # General
     path('science_work', view_science.WorkerScienceWorkView.as_view(), name='science_work'),
+
     # Create
     #path('oponency/create', view_science.CreateThesis.as_view(), name='create_oponency'),
     path('ponency/create', view_science.CreatePonency.as_view(), name='create_ponency'),
@@ -74,6 +83,7 @@ urlpatterns = [
     # DOCENT
     # General
     path('docent_work', view_docent.WorkerDocentWorkView.as_view(), name='docent_work'),
+
     # Create
     path('course/create', view_docent.CreateCourse.as_view(), name='create_course'),
     path('course_edition/create', view_docent.CreateCourseEdition.as_view(), name='create_course_edition'),
